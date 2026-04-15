@@ -12,11 +12,13 @@ async function loadJson(path) {
 }
 
 function resolveAssetPaths(episode, lang) {
+  // Only swap lang suffix if the path already has one (e.g., comics/ep0X_zh.png).
+  // Paths without a lang suffix (e.g., bg/ruins_2050.png) are language-agnostic
+  // and pass through unchanged.
   const clone = structuredClone(episode);
   for (const s of clone.screens) {
     if (s.type === 'cold_open' || s.type === 'outro') {
       s.image = s.image.replace(/_(zh|en)\.png$/, `_${lang}.png`);
-      if (!/_(zh|en)\./.test(s.image)) s.image = s.image.replace(/\.png$/, `_${lang}.png`);
     }
   }
   return clone;

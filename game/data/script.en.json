@@ -7,7 +7,7 @@
     "screens": [
       {
         "type": "cold_open",
-        "image": "assets/comics/ep01_en.png",
+        "image": "assets/bg/ruins_2050.png",
         "narration": "2050. The last task card bounces back. The A2H Market hall has been completely dark for seven years."
       },
       {
@@ -254,7 +254,7 @@
       },
       {
         "type": "outro",
-        "image": "assets/comics/ep01_en.png",
+        "image": "assets/bg/market_hall.png",
         "learned_feeling_display": "A sense of accomplishment"
       }
     ]

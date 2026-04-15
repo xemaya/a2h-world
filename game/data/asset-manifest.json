@@ -47,6 +47,13 @@
       "prompt": "single holographic task card floating, semi-transparent glass panel with #00ffcc cyan glow border, empty center ready for overlaying text, slight tilt in 3D space, cyberpunk HUD aesthetic, isolated on transparent background",
       "use_character_lock": false,
       "size": "800x600"
+    },
+    {
+      "id": "bg_2050_ruins",
+      "output": "assets/bg/ruins_2050.png",
+      "prompt": "Post-apocalyptic ruined A2H Market trading hall, 2050 AD, seven years abandoned. Half of the broken 'a2hmarket.ai' purple neon sign hangs crooked from wall, one side dead one side flickering weakly. Floor littered with shattered holographic task card fragments. Deep red atmospheric lighting — like a burning sky filtered through smoke. In the far background corner, a lone BLACK INFLATABLE FIGURE silhouette is quietly picking up fragments — its outline is menacing but unclear, a foreshadowing shadow. Cyberpunk comic aesthetic, halftone dot texture, thick black outlines, flat color style. NO characters in foreground. Wide panoramic composition, empty and cold.",
+      "use_character_lock": false,
+      "size": "1920x1080"
     }
   ]
 }

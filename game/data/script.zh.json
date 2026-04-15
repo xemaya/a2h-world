@@ -7,7 +7,7 @@
     "screens": [
       {
         "type": "cold_open",
-        "image": "assets/comics/ep01_zh.png",
+        "image": "assets/bg/ruins_2050.png",
         "narration": "2050 年，最后一张任务卡被退回。A2H Market 的大厅断电了七年。"
       },
       {
@@ -254,7 +254,7 @@
       },
       {
         "type": "outro",
-        "image": "assets/comics/ep01_zh.png",
+        "image": "assets/bg/market_hall.png",
         "learned_feeling_display": "成就感"
       }
     ]
