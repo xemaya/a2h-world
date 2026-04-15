@@ -1,0 +1,90 @@
+// src/main.js — app boot, event wiring, state → DOM sync
+
+import { initialState, reduce, currentView } from './state.js';
+import { createI18n } from './i18n.js';
+import { loadProgress, saveProgress, clearProgress } from './storage.js';
+import { renderScreen } from './ui/screens.js';
+
+async function loadJson(path) {
+  const res = await fetch(path);
+  if (!res.ok) throw new Error(`Failed to load ${path}: ${res.status}`);
+  return res.json();
+}
+
+function resolveAssetPaths(episode, lang) {
+  const clone = structuredClone(episode);
+  for (const s of clone.screens) {
+    if (s.type === 'cold_open' || s.type === 'outro') {
+      s.image = s.image.replace(/_(zh|en)\.png$/, `_${lang}.png`);
+      if (!/_(zh|en)\./.test(s.image)) s.image = s.image.replace(/\.png$/, `_${lang}.png`);
+    }
+  }
+  return clone;
+}
+
+async function boot() {
+  const [scriptZh, scriptEn, uiZh, uiEn] = await Promise.all([
+    loadJson('./data/script.zh.json'),
+    loadJson('./data/script.en.json'),
+    loadJson('./data/ui.zh.json'),
+    loadJson('./data/ui.en.json')
+  ]);
+
+  const uiResources = { zh: uiZh, en: uiEn };
+  const scripts = { zh: scriptZh, en: scriptEn };
+
+  const saved = loadProgress();
+  let state = initialState(scripts[saved?.lang || 'zh'], 'EP01');
+  if (saved) state = { ...state, ...saved, script: scripts[saved.lang || 'zh'] };
+
+  const i18n = createI18n(uiResources, state.lang);
+
+  const stage = document.querySelector('#stage');
+  const nextBtn = document.querySelector('[data-slot="next"]');
+  const langBtn = document.querySelector('[data-slot="lang-toggle"]');
+  const progressFill = document.querySelector('[data-slot="progress-fill"]');
+  const progressValue = document.querySelector('[data-slot="progress-value"]');
+  const progressLabel = document.querySelector('[data-slot="progress-label"]');
+  const epLabel = document.querySelector('[data-slot="ep-label"]');
+
+  function paint() {
+    const { episode, screen, lineIdx } = currentView(state);
+    const epi = resolveAssetPaths(episode, state.lang);
+    const screenWithAssets = epi.screens[state.screenIdx];
+    stage.dataset.chosenOption = state.chosenOption || '';
+    renderScreen(stage, screenWithAssets, lineIdx, i18n, (optionId) => {
+      state = reduce(state, { type: 'CHOOSE', optionId });
+      saveProgress(state);
+      paint();
+    });
+
+    progressLabel.textContent = i18n.t('learning_progress');
+    progressValue.textContent = `${state.learningScore}/100`;
+    progressFill.style.width = `${state.learningScore}%`;
+    epLabel.textContent = `EP.${episode.id.slice(2)}`;
+    langBtn.textContent = i18n.t('lang_toggle');
+
+    nextBtn.textContent = i18n.t('next');
+    nextBtn.disabled = (screenWithAssets.type === 'choice' && lineIdx === 0);
+  }
+
+  nextBtn.addEventListener('click', () => {
+    state = reduce(state, { type: 'NEXT' });
+    saveProgress(state);
+    paint();
+  });
+
+  langBtn.addEventListener('click', () => {
+    const newLang = state.lang === 'zh' ? 'en' : 'zh';
+    i18n.setLang(newLang);
+    state = { ...state, lang: newLang, script: scripts[newLang] };
+    saveProgress(state);
+    paint();
+  });
+
+  paint();
+}
+
+boot().catch(err => {
+  document.body.innerHTML = `<pre style="color:#ff6666;padding:40px;font-family:monospace">Boot error: ${err.message}\n${err.stack || ''}</pre>`;
+});
