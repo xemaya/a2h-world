@@ -6,7 +6,7 @@ import { loadProgress, saveProgress, clearProgress } from './storage.js';
 import { renderScreen } from './ui/screens.js';
 
 async function loadJson(path) {
-  const res = await fetch(path);
+  const res = await fetch(`${path}?v=${Date.now()}`);
   if (!res.ok) throw new Error(`Failed to load ${path}: ${res.status}`);
   return res.json();
 }
@@ -41,7 +41,11 @@ async function boot() {
 
   const i18n = createI18n(uiResources, state.lang);
 
-  const stage = document.querySelector('#stage');
+  const refs = {
+    stage: document.querySelector('#stage'),
+    dialoguePanel: document.querySelector('.dialogue-panel'),
+    dialogueContent: document.querySelector('[data-slot="dialogue-content"]')
+  };
   const nextBtn = document.querySelector('[data-slot="next"]');
   const langBtn = document.querySelector('[data-slot="lang-toggle"]');
   const restartBtn = document.querySelector('[data-slot="restart"]');
@@ -54,8 +58,8 @@ async function boot() {
     const { episode, screen, lineIdx } = currentView(state);
     const epi = resolveAssetPaths(episode, state.lang);
     const screenWithAssets = epi.screens[state.screenIdx];
-    stage.dataset.chosenOption = state.chosenOption || '';
-    renderScreen(stage, screenWithAssets, lineIdx, i18n, (optionId) => {
+
+    renderScreen(refs, screenWithAssets, lineIdx, state, i18n, (optionId) => {
       state = reduce(state, { type: 'CHOOSE', optionId });
       saveProgress(state);
       paint();

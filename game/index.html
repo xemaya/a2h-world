@@ -21,12 +21,13 @@
       </div>
     </header>
 
-    <main id="stage">
-      <!-- Screen renderers inject content here -->
-    </main>
+    <main id="stage"><!-- theater: bg + sprites + atmospheric overlays --></main>
 
-    <footer class="controls">
-      <button data-slot="next" class="next-btn">继续 ▸</button>
+    <footer class="dialogue-footer">
+      <div class="dialogue-panel">
+        <div class="dialogue-content" data-slot="dialogue-content"></div>
+        <button class="next-btn" data-slot="next">继续 ▸</button>
+      </div>
     </footer>
   </div>
 

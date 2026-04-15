@@ -5,7 +5,9 @@
   --ink: #e8e8f5;
   --muted: #8080a0;
   --panel: rgba(137, 90, 255, 0.08);
-  --panel-border: rgba(0, 255, 204, 0.35);
+  --panel-border: rgba(0, 255, 204, 0.3);
+  --panel-border-strong: rgba(0, 255, 204, 0.55);
+  --dialogue-bg: rgba(10, 10, 22, 0.88);
   --font-ui: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', system-ui, sans-serif;
   --font-mono: 'SF Mono', 'JetBrains Mono', Consolas, monospace;
 }
@@ -22,6 +24,7 @@ body {
 
 #app { display: grid; grid-template-rows: auto 1fr auto; height: 100vh; max-width: 1200px; margin: 0 auto; }
 
+/* ─── HUD ─── */
 .hud {
   display: flex; align-items: center; justify-content: space-between;
   padding: 12px 20px;
@@ -29,101 +32,195 @@ body {
   font-family: var(--font-mono);
   font-size: 13px;
   color: var(--muted);
-  background: linear-gradient(180deg, rgba(137,90,255,0.08), transparent);
+  background: linear-gradient(180deg, rgba(137,90,255,0.1), transparent);
+  z-index: 10;
 }
-.hud-ep { color: var(--cyan); letter-spacing: 0.1em; }
+.hud-ep { color: var(--cyan); letter-spacing: 0.1em; text-shadow: 0 0 8px rgba(0,255,204,0.4); }
 .hud-progress { display: flex; align-items: center; gap: 10px; }
 .progress-track { width: 180px; height: 4px; background: rgba(255,255,255,0.08); border-radius: 2px; overflow: hidden; }
-.progress-fill { height: 100%; background: linear-gradient(90deg, var(--purple), var(--cyan)); transition: width 300ms ease; width: 0%; }
+.progress-fill { height: 100%; background: linear-gradient(90deg, var(--purple), var(--cyan)); transition: width 400ms ease; width: 0%; box-shadow: 0 0 8px rgba(0,255,204,0.6); }
 .hud-actions { display: flex; gap: 8px; align-items: center; }
 .hud-lang, .hud-restart {
   background: transparent; border: 1px solid var(--panel-border); color: var(--ink);
   padding: 4px 10px; font-family: var(--font-mono); font-size: 12px; cursor: pointer;
-  border-radius: 3px; transition: background 150ms;
+  border-radius: 4px; transition: all 150ms;
 }
 .hud-restart { padding: 4px 8px; font-size: 14px; }
-.hud-lang:hover, .hud-restart:hover { background: var(--panel); border-color: var(--cyan); }
+.hud-lang:hover, .hud-restart:hover { background: var(--panel); border-color: var(--cyan); color: var(--cyan); }
 
-#stage { position: relative; overflow: hidden; }
+/* ─── #stage (theater) ─── */
+#stage { position: relative; overflow: hidden; background: var(--bg); }
 
-/* Cold-open full-bleed comic panel */
-.screen-cold {
-  position: absolute; inset: 0; display: grid; place-items: center;
-  background: #1a0a0a;
-}
-.screen-cold img { max-width: 100%; max-height: calc(100% - 120px); object-fit: contain; }
-.screen-cold .narration {
-  position: absolute; top: 32px; left: 50%; transform: translateX(-50%);
-  background: rgba(5,5,15,0.8); border: 1px solid rgba(255,80,80,0.4);
-  padding: 12px 20px; font-size: 15px; max-width: 80%; text-align: center;
+/* bg image layer — shared for all screens */
+.scene-bg { position: absolute; inset: 0; z-index: 0; }
+.scene-bg img { width: 100%; height: 100%; object-fit: cover; opacity: 0.85; }
+
+/* cold_open atmosphere — deep red tint overlay */
+.scene-tint-red { position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: linear-gradient(180deg, rgba(130,20,20,0.25), rgba(50,5,5,0.4));
+  mix-blend-mode: multiply; }
+
+/* outro atmosphere — warm purple */
+.scene-tint-purple { position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: radial-gradient(ellipse at 50% 40%, rgba(137,90,255,0.25) 0%, rgba(50,25,90,0.5) 80%);
+  mix-blend-mode: soft-light; }
+
+/* vignette at bottom for dialog readability */
+.scene-vignette { position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  background: linear-gradient(180deg, transparent 50%, rgba(5,5,15,0.6) 95%); }
+
+/* narration card — cold_open */
+.narration-card {
+  position: absolute; left: 50%; top: 44px; transform: translateX(-50%);
+  z-index: 5;
+  background: rgba(15,5,5,0.85);
+  border: 1px solid rgba(255,100,100,0.35);
+  border-left: 3px solid rgba(255,100,100,0.8);
+  padding: 14px 22px; font-size: 15px;
+  max-width: 80%; text-align: center;
   color: #ffdada;
+  letter-spacing: 0.04em;
+  box-shadow: 0 0 40px rgba(120,20,20,0.35);
+  backdrop-filter: blur(6px);
 }
 
-/* VN view */
-.screen-vn { position: absolute; inset: 0; display: grid; grid-template-rows: 1fr auto; }
-.screen-vn .bg { position: absolute; inset: 0; z-index: 0; }
-.screen-vn .bg img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; }
-.screen-vn .characters {
-  position: relative; z-index: 1;
-  display: flex; justify-content: space-between; align-items: flex-end;
-  padding: 0 60px; pointer-events: none;
+/* sprites layer */
+.characters {
+  position: absolute; inset: 0; z-index: 3;
+  display: flex; align-items: flex-end; justify-content: space-between;
+  padding: 0 60px 20px; pointer-events: none;
 }
-.screen-vn .characters { min-height: 40vh; gap: 20px; }
-.screen-vn .sprite { max-height: 55vh; max-width: 35vw; width: auto; height: auto; object-fit: contain; filter: drop-shadow(0 0 20px rgba(0,255,204,0.3)); }
-.screen-vn .sprite.echo { transform: scaleX(-1); }
+.sprite {
+  max-height: 62vh; max-width: 32vw; width: auto; height: auto; object-fit: contain;
+  filter: drop-shadow(0 0 18px rgba(0,255,204,0.2));
+  transition: opacity 220ms ease, transform 220ms ease, filter 220ms ease;
+  opacity: 0.4; transform: translateY(4px) scale(0.97);
+}
+.sprite.active {
+  opacity: 1; transform: translateY(0) scale(1);
+  filter: drop-shadow(0 0 24px rgba(0,255,204,0.55));
+}
+.sprite.echo { transform-origin: bottom right; }
+.sprite.partner { transform-origin: bottom left; }
 
-.dialogue-box {
-  position: relative; z-index: 2;
-  margin: 0 20px 20px;
-  background: rgba(5,5,15,0.92); border: 1px solid var(--panel-border);
-  border-radius: 6px; padding: 20px 24px;
-  backdrop-filter: blur(8px);
+/* choice prompt — floating in theater */
+.choice-prompt {
+  position: absolute; left: 50%; top: 32%; transform: translateX(-50%);
+  z-index: 5;
+  background: rgba(5,5,15,0.85);
+  border: 1px solid var(--panel-border);
+  padding: 16px 24px;
+  max-width: 80%; font-size: 15px; line-height: 1.7;
+  color: var(--ink);
+  box-shadow: 0 0 40px rgba(0,0,0,0.6);
+  backdrop-filter: blur(6px);
+  border-radius: 6px;
 }
-.dialogue-box .speaker {
-  font-family: var(--font-mono); font-size: 12px;
-  color: var(--cyan); letter-spacing: 0.15em; margin-bottom: 6px;
-}
-.dialogue-box .speaker.echo { color: var(--purple); }
-.dialogue-box .text { font-size: 17px; line-height: 1.7; }
 
-/* Choice view */
-.screen-choice { position: absolute; inset: 0; display: grid; grid-template-rows: 1fr auto; }
-.screen-choice .bg { position: absolute; inset: 0; z-index: 0; }
-.screen-choice .bg img { width: 100%; height: 100%; object-fit: cover; opacity: 0.5; }
-.screen-choice .prompt {
-  position: relative; z-index: 1;
-  text-align: center; padding: 60px 40px; font-size: 19px; color: var(--ink);
-  text-shadow: 0 0 20px rgba(0,0,0,0.9);
+/* outro learned-feeling banner */
+.outro-banner {
+  position: absolute; inset: 0; z-index: 5;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  pointer-events: none;
 }
-.choice-options {
-  position: relative; z-index: 2;
-  display: flex; flex-direction: column; gap: 14px; padding: 0 20px 40px; max-width: 700px; margin: 0 auto; width: 100%;
+.outro-banner .label {
+  font-family: var(--font-mono); font-size: 14px; letter-spacing: 0.3em;
+  color: var(--muted); text-transform: uppercase; margin-bottom: 12px;
+  opacity: 0; animation: fadeUp 600ms ease 400ms forwards;
 }
+.outro-banner .word {
+  font-size: clamp(40px, 7vw, 72px); font-weight: 700;
+  color: var(--cyan); letter-spacing: 0.12em;
+  text-shadow: 0 0 30px rgba(0,255,204,0.5), 0 0 60px rgba(0,255,204,0.25);
+  opacity: 0; animation: fadeUp 800ms ease 900ms forwards;
+}
+.outro-banner .episode {
+  position: absolute; bottom: 32px; left: 32px;
+  font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.2em; color: var(--muted);
+}
+.outro-banner .slogan {
+  position: absolute; bottom: 32px; right: 32px;
+  font-family: var(--font-mono); font-size: 11px; color: var(--muted);
+  max-width: 40vw; text-align: right;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── dialogue panel (bottom, Claude-Code-style) ─── */
+.dialogue-footer {
+  padding: 14px 20px 18px;
+  z-index: 20;
+  background: linear-gradient(180deg, transparent, rgba(5,5,15,0.7) 30%);
+}
+.dialogue-panel {
+  background: var(--dialogue-bg);
+  border: 1px solid var(--panel-border-strong);
+  border-radius: 14px;
+  padding: 16px 18px 16px 22px;
+  display: flex; align-items: flex-end; gap: 14px;
+  box-shadow: 0 0 30px rgba(0,255,204,0.08), 0 4px 20px rgba(0,0,0,0.5);
+  backdrop-filter: blur(12px);
+  min-height: 80px;
+  transition: border-color 220ms;
+}
+.dialogue-panel:focus-within { border-color: var(--cyan); }
+.dialogue-content { flex: 1; min-width: 0; }
+
+/* speaker row — like input label */
+.dialogue-content .speaker-row {
+  display: flex; align-items: center; gap: 10px;
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em;
+  color: var(--cyan); margin-bottom: 6px;
+  text-transform: uppercase;
+}
+.dialogue-content .speaker-row.echo { color: var(--purple); }
+.dialogue-content .speaker-row.narrator { color: var(--muted); letter-spacing: 0.12em; text-transform: none; font-style: italic; }
+
+.dialogue-content .speaker-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 8px currentColor;
+}
+
+/* text row — like input value */
+.dialogue-content .text {
+  font-size: 16px; line-height: 1.7; color: var(--ink);
+  word-break: break-word;
+}
+.dialogue-content .text.narrator-italic { color: #c0c0d8; font-style: italic; font-size: 14.5px; }
+
+/* choice options rendered inside panel */
+.dialogue-content.choice-mode { display: flex; flex-direction: column; gap: 10px; }
 .choice-option {
-  background: rgba(5,5,15,0.92); border: 1px solid var(--panel-border);
-  color: var(--ink); padding: 18px 24px; font-size: 16px; text-align: left;
-  font-family: var(--font-ui); cursor: pointer; border-radius: 4px;
+  background: rgba(137,90,255,0.06);
+  border: 1px solid var(--panel-border);
+  color: var(--ink);
+  padding: 14px 18px; font-size: 15px; text-align: left;
+  font-family: var(--font-ui); cursor: pointer; border-radius: 10px;
   transition: all 180ms;
+  line-height: 1.6;
+  width: 100%;
 }
-.choice-option:hover { background: var(--panel); border-color: var(--cyan); }
-
-/* Outro — full-bleed closing panel */
-.screen-outro {
-  position: absolute; inset: 0; display: grid; place-items: center;
-  background: #1a1025;
-}
-.screen-outro img { max-width: 100%; max-height: 100%; object-fit: contain; }
-.screen-outro .learned {
-  position: absolute; bottom: 32px; right: 40px;
-  font-family: var(--font-mono); font-size: 13px; color: var(--cyan);
-  text-shadow: 0 0 10px rgba(0,255,204,0.6);
+.choice-option:hover { background: rgba(0,255,204,0.08); border-color: var(--cyan); transform: translateX(3px); }
+.choice-option .option-id {
+  display: inline-block; color: var(--cyan); font-family: var(--font-mono);
+  font-size: 12px; margin-right: 10px; letter-spacing: 0.1em;
 }
 
-.controls { padding: 16px 20px; border-top: 1px solid var(--panel-border); display: flex; justify-content: center; }
+/* next button — inside the panel, right side, Claude Code send-style */
 .next-btn {
   background: var(--purple); color: white; border: 0;
-  padding: 12px 36px; font-size: 15px; letter-spacing: 0.05em;
-  font-family: var(--font-ui); cursor: pointer; border-radius: 3px;
-  box-shadow: 0 0 20px rgba(137,90,255,0.5);
+  padding: 10px 20px; font-size: 14px; letter-spacing: 0.06em;
+  font-family: var(--font-ui); cursor: pointer; border-radius: 10px;
+  box-shadow: 0 0 18px rgba(137,90,255,0.5);
+  flex-shrink: 0;
+  transition: all 150ms;
+  align-self: center;
 }
-.next-btn:disabled { background: #444; box-shadow: none; cursor: not-allowed; }
+.next-btn:hover:not(:disabled) { background: #a273ff; box-shadow: 0 0 24px rgba(137,90,255,0.7); }
+.next-btn:disabled { background: rgba(100,100,130,0.35); box-shadow: none; cursor: not-allowed; color: rgba(232,232,245,0.35); }
+
+/* empty state (choice screen showing options — next button hidden/dimmed) */
+.dialogue-panel.choice-mode .next-btn { display: none; }
