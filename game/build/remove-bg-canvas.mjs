@@ -13,8 +13,8 @@ const gameRoot = join(__dirname, '..');
 
 // Configuration
 const TARGET_COLOR = { r: 0, g: 0, b: 0 }; // Black background
-const DEFAULT_TOLERANCE = 40; // Higher to remove all white edges
-const KAI_TOLERANCE = 20; // Lower for KAI (black hoodie issue)
+const DEFAULT_TOLERANCE = 60; // Very high to remove all edges including light gray
+const KAI_TOLERANCE = 25; // Slightly higher for KAI too
 
 const INPUT_DIR = join(gameRoot, 'assets/temp_raw');
 const OUTPUT_CONFIG = {
@@ -26,6 +26,7 @@ const OUTPUT_CONFIG = {
 
 /**
  * Remove solid color background from image
+ * Also removes light gray edges (common Gemini artifact)
  * @param {Image} img - Loaded image
  * @param {number} tolerance - Color tolerance (0-255)
  * @returns {Buffer} PNG buffer with transparent background
@@ -49,12 +50,19 @@ function removeBackground(img, tolerance) {
     const g = data[i + 1];
     const b = data[i + 2];
 
-    // Check if color is within tolerance of target
-    if (
-      Math.abs(r - TARGET_COLOR.r) <= tolerance &&
-      Math.abs(g - TARGET_COLOR.g) <= tolerance &&
-      Math.abs(b - TARGET_COLOR.b) <= tolerance
-    ) {
+    // Check if color is within tolerance of pure black
+    const isBlack = Math.abs(r - TARGET_COLOR.r) <= tolerance &&
+                    Math.abs(g - TARGET_COLOR.g) <= tolerance &&
+                    Math.abs(b - TARGET_COLOR.b) <= tolerance;
+
+    // For light gray edges (Gemini artifact), only remove very light grays (170-220 range)
+    // This preserves dark clothing like KAI's black hoodie
+    const isLightGrayEdge = r >= 170 && r <= 220 &&
+                            g >= 170 && g <= 220 &&
+                            b >= 170 && b <= 220 &&
+                            Math.abs(r - g) < 10 && Math.abs(g - b) < 10; // low saturation
+
+    if (isBlack || isLightGrayEdge) {
       data[i + 3] = 0; // Set alpha to transparent
       removedPixels++;
     }

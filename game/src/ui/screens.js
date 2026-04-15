@@ -38,7 +38,7 @@ function renderCharacters(activeSpeaker, echoEmotion, partnerSprite, partnerName
     }),
     h('img', {
       class: `sprite echo${echoActive ? ' active' : ''}`,
-      src: `assets/echo/echo_${echoEmotion || 'blank'}.png`,
+      src: `assets/echo/echo_${echoEmotion || 'blank'}.png?t=${Date.now()}`,
       alt: 'ECHO'
     })
   );

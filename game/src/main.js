@@ -16,9 +16,13 @@ function resolveAssetPaths(episode, lang) {
   // Paths without a lang suffix (e.g., bg/ruins_2050.png) are language-agnostic
   // and pass through unchanged.
   const clone = structuredClone(episode);
+  const cacheBust = `?t=${Date.now()}`; // Dynamic cache busting
   for (const s of clone.screens) {
     if (s.type === 'cold_open' || s.type === 'outro') {
-      s.image = s.image.replace(/_(zh|en)\.png$/, `_${lang}.png`);
+      s.image = s.image.replace(/_(zh|en)\.png$/, `_${lang}.png`) + cacheBust;
+    }
+    if (s.type === 'vn' && s.partner?.sprite) {
+      s.partner.sprite += cacheBust;
     }
   }
   return clone;
