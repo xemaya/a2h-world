@@ -1,0 +1,22 @@
+{
+  "name": "a2h-echo-game",
+  "version": "0.1.0",
+  "description": "A2H UNIVERSE — ECHO text AVG (EP.01 vertical slice)",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "python3 -m http.server 8080",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "verify:models": "node build/verify-models.mjs",
+    "review:script": "node build/review-script.mjs",
+    "gen:assets": "node build/generate-assets.mjs"
+  },
+  "devDependencies": {
+    "vitest": "^2.1.0",
+    "zod": "^3.23.0"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
