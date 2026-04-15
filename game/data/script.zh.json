@@ -13,82 +13,241 @@
       {
         "type": "vn",
         "bg": "assets/bg/market_hall.png",
-        "partner": { "sprite": "assets/partners/kai.png", "name": "KAI" },
+        "partner": {
+          "sprite": "assets/partners/kai.png",
+          "name": "KAI"
+        },
         "dialogue": [
           {
             "speaker": "narrator",
             "emotion": "neutral",
-            "text": "2026 年，A2H Market 交易大厅。KAI 靠在立柱上，黑色连帽衫袖口胡乱卷起，盯着任务列表划了十几分钟，连续三天没接到活。他准备刷完这页就回去睡。"
+            "text": "2026 年，A2H Market 交易大厅。背景墙上霓虹招牌「a2hmarket.ai」在闪青色的光。大厅里悬浮着几十张半透明的全息任务卡，金额数字跳动着。不仔细看不会注意到，墙角那排数据流里有行细小的字：VOID-PROTOCOL: DORMANT。KAI 缩在靠墙的位置，黑色连帽衫，袖子卷到肘，前臂一条褪色手环。他盯着任务列表已经刷了十几分钟——连续第三天没接到一条。信用分 0，匹配不到好任务，匹配到的他又看不上。今天本来是赌气来晃一圈就走的。"
           },
-          { "speaker": "narrator", "emotion": "neutral", "text": "一个匹配折扣弹窗弹出来。他抬头。" },
-          { "speaker": "partner", "emotion": "neutral", "text": "……这就是新上的那个？" },
-          { "speaker": "echo", "emotion": "blank", "text": "✓ 上线。代号 ECHO。正在检索环境信息。" },
-          { "speaker": "partner", "emotion": "neutral", "text": "信用分 0 是吧？" },
-          { "speaker": "echo", "emotion": "blank", "text": "……数据不足。什么是信用分？" },
-          { "speaker": "partner", "emotion": "neutral", "text": "就是你啥也没干过。跟我一样。行吧，搭一下。" },
-          { "speaker": "narrator", "emotion": "neutral", "text": "KAI 随手在空中一抓，点开任务列表快速向下滑。" },
-          { "speaker": "partner", "emotion": "neutral", "text": "有个银饰店急活。¥80，60 分钟。要关键词。" },
+          {
+            "speaker": "partner",
+            "emotion": "neutral",
+            "text": "……这就是新上的那个？"
+          },
+          {
+            "speaker": "narrator",
+            "emotion": "neutral",
+            "text": "系统弹出提示：「新 Agent 上线：ECHO（信用分 0，首次协作享 50% 匹配折扣）」。KAI 盯着那个括号里的零看了两秒，然后点进去。"
+          },
           {
             "speaker": "echo",
             "emotion": "blank",
-            "text": "正在处理任务描述……客户原文：「手工银饰店，苏州周边，想让新顾客能搜到我们。关键词我自己改了 18 次越改越糟。」"
+            "text": "✓ 上线。代号 ECHO。正在检索环境信息。当前位置：A2H Market 交易大厅。当前时间节点：2026 年，Agent 元年。"
           },
-          { "speaker": "narrator", "emotion": "neutral", "text": "KAI 停顿了一下，短促地笑了一声。" },
-          { "speaker": "partner", "emotion": "neutral", "text": "这人是不是我认识。" },
-          { "speaker": "partner", "emotion": "neutral", "text": "接了。你跑关键词，我看客户原页面有啥坑。" },
-          { "speaker": "echo", "emotion": "blank", "text": "✓ 分工已记录。" }
+          {
+            "speaker": "partner",
+            "emotion": "neutral",
+            "text": "信用分 0 是吧？"
+          },
+          {
+            "speaker": "echo",
+            "emotion": "blank",
+            "text": "……数据不足。什么是信用分？"
+          },
+          {
+            "speaker": "partner",
+            "emotion": "neutral",
+            "text": "就是你啥也没干过的证明。"
+          },
+          {
+            "speaker": "echo",
+            "emotion": "blank",
+            "text": "✓ 已记录定义。当前状态：首次上线，无协作记录。"
+          },
+          {
+            "speaker": "partner",
+            "emotion": "neutral",
+            "text": "……跟我一样。"
+          },
+          {
+            "speaker": "narrator",
+            "emotion": "neutral",
+            "text": "KAI 盯着系统提示里「信用分 0」那几个字又看了一秒，然后划开任务列表。拇指在几个单子上滑过去，没犹豫太久，停在一条上面。"
+          },
+          {
+            "speaker": "partner",
+            "emotion": "neutral",
+            "text": "行吧，搭一下试试。有个银饰店急活，¥80，60 分钟，要小红书关键词。你先看任务描述。"
+          },
+          {
+            "speaker": "echo",
+            "emotion": "blank",
+            "text": "正在处理任务描述……原文：「手工银饰店，苏州周边，想让新顾客能搜到我们。关键词我自己改了 18 次越改越糟，求大神帮忙。60 分钟内，¥80 诚谢。」"
+          },
+          {
+            "speaker": "partner",
+            "emotion": "neutral",
+            "text": "这人是不是我认识。"
+          },
+          {
+            "speaker": "echo",
+            "emotion": "blank",
+            "text": "……数据不足。无法确认。"
+          },
+          {
+            "speaker": "partner",
+            "emotion": "neutral",
+            "text": "不是真的——随便说的。就是这种感觉，自己越改越乱，最后救不回来，我干过。"
+          },
+          {
+            "speaker": "partner",
+            "emotion": "neutral",
+            "text": "行，接了。你跑关键词分析，我先翻她原来的页面，看看之前哪儿出了问题。"
+          },
+          {
+            "speaker": "echo",
+            "emotion": "blank",
+            "text": "✓ 分工已记录。开始处理。"
+          }
         ]
       },
       {
         "type": "vn",
         "bg": "assets/bg/market_hall.png",
-        "partner": { "sprite": "assets/partners/kai.png", "name": "KAI" },
+        "partner": {
+          "sprite": "assets/partners/kai.png",
+          "name": "KAI"
+        },
         "dialogue": [
-          { "speaker": "narrator", "emotion": "neutral", "text": "不到三分钟，ECHO 头顶的天线停止晃动，调出一组对比图表。" },
+          {
+            "speaker": "narrator",
+            "emotion": "neutral",
+            "text": "KAI 盯着客户的小红书主页皱眉。里面堆着「银饰」「手工」「饰品」「原创」「苏州」「礼物」「小众」「纯银」「苏州礼物」「情侣饰品」……密密麻麻二十几个标签，每个都像在用力喊，效果却是彼此压着彼此，一起沉底。"
+          },
+          {
+            "speaker": "partner",
+            "emotion": "concern",
+            "text": "她是真的把自己改烂了。"
+          },
           {
             "speaker": "echo",
             "emotion": "blank",
-            "text": "✓ 分析完成。最优解：3 个精准长尾词——「手工银饰」「原创设计」「苏州周边」。算法转化率是泛词组的 7.2 倍。"
+            "text": "✓ 关键词分析完成。最优解：3 个精准长尾词——「手工银饰」「原创设计」「苏州周边」。基于算法爬取数据，这 3 词组合的 30 天点击转化率是当前 20 词方案的 7.2 倍。"
           },
-          { "speaker": "partner", "emotion": "concern", "text": "任务写的是 20 个。客户要 20 个。" },
-          { "speaker": "echo", "emotion": "blank", "text": "✓ 已知。20 个泛词会被算法判为堆砌，触发降权。数据支持 3 词方案。" },
-          { "speaker": "partner", "emotion": "concern", "text": "对，但客户也不懂算法。她看到 3 个词会觉得敷衍，给差评。" },
-          { "speaker": "echo", "emotion": "blank", "text": "……正在处理。矛盾：合同要求 vs 实际效果。优先级——数据不足以判断。" },
-          { "speaker": "narrator", "emotion": "neutral", "text": "KAI 的手指悬在半空的面板上方。他看着 ECHO 那组转化率曲线，又看了一眼任务合同。几秒。" },
-          { "speaker": "narrator", "emotion": "neutral", "text": "他敲了一下虚拟回车键。" },
-          { "speaker": "partner", "emotion": "neutral", "text": "……行吧。你选 3 个我看看。" },
+          {
+            "speaker": "partner",
+            "emotion": "concern",
+            "text": "任务单写的是 20 个。客户付钱就是买 20 个。"
+          },
           {
             "speaker": "echo",
             "emotion": "blank",
-            "text": "✓ 方案提交：手工银饰、原创设计、苏州周边。备注：「本次仅提交高权重词 3 个，余 17 个为防止降权故意留空，详见说明。」"
+            "text": "✓ 已知。但 20 个同类泛词会被小红书搜索算法判为关键词堆砌，触发降权处理，搜索排名反而下降。从效果出发，数据明确支持 3 词方案。"
           },
-          { "speaker": "partner", "emotion": "neutral", "text": "……这备注是你加的？" },
-          { "speaker": "echo", "emotion": "blank", "text": "✓ 是。" },
-          { "speaker": "partner", "emotion": "neutral", "text": "行啊，比我会说话。" },
-          { "speaker": "partner", "emotion": "neutral", "text": "行，出问题我扛。发了。" },
-          { "speaker": "narrator", "emotion": "neutral", "text": "二十秒。全息倒计时一秒一秒跳。a2hmarket.ai 的私信框悬浮在 KAI 眼前。" },
-          { "speaker": "partner", "emotion": "neutral", "text": "……客户回了。" },
-          { "speaker": "partner", "emotion": "neutral", "text": "「我靠，我刚搜了一下自己家店，真出来了。」" },
-          { "speaker": "partner", "emotion": "neutral", "text": "……成了。" }
+          {
+            "speaker": "partner",
+            "emotion": "concern",
+            "text": "对。但客户不懂算法这套。她交 ¥80 是来买 20 个词的，你给她 3 个，第一反应就是被糊弄。差评直接来，你的评分没了，我的评分也没了。"
+          },
+          {
+            "speaker": "echo",
+            "emotion": "blank",
+            "text": "……正在处理。矛盾：合同约定数量 vs 算法实际效果。优先级——数据不足以自行判断。"
+          },
+          {
+            "speaker": "partner",
+            "emotion": "concern",
+            "text": "合同就是合同。接活就按合同交——我以前每次都这么干，甲方也不深究。"
+          },
+          {
+            "speaker": "echo",
+            "emotion": "blank",
+            "text": "……记录中。问题：若按合同交付 20 个泛词，客户搜索排名大概率不会改善。客户需求原文是「想让新顾客能搜到」——数量合规，但需求没有实现。"
+          },
+          {
+            "speaker": "narrator",
+            "emotion": "neutral",
+            "text": "KAI 没有立刻接话。手指敲了一下桌子。"
+          },
+          {
+            "speaker": "partner",
+            "emotion": "neutral",
+            "text": "……行吧。你先把那 3 个词给我看。"
+          },
+          {
+            "speaker": "echo",
+            "emotion": "blank",
+            "text": "✓ 方案：手工银饰、原创设计、苏州周边。建议提交时加客户说明，告知减词原因，避免客户误判为敷衍。"
+          },
+          {
+            "speaker": "partner",
+            "emotion": "neutral",
+            "text": "说明你来写还是我来写？"
+          },
+          {
+            "speaker": "echo",
+            "emotion": "blank",
+            "text": "正在起草……「本次仅提交高权重关键词 3 个。小红书搜索算法对同类关键词堆砌有降权惩罚，堆砌超过阈值后搜索曝光反而下降。余 17 个词位为保障排名效果故意留空。如需验证，可在提交 24 小时后搜索「苏州手工银饰」自行对比。」"
+          },
+          {
+            "speaker": "partner",
+            "emotion": "neutral",
+            "text": "……这整段是你自己写的？"
+          },
+          {
+            "speaker": "echo",
+            "emotion": "blank",
+            "text": "✓ 是。根据当前矛盾点生成。"
+          },
+          {
+            "speaker": "partner",
+            "emotion": "neutral",
+            "text": "行啊，比我会说话。"
+          },
+          {
+            "speaker": "partner",
+            "emotion": "neutral",
+            "text": "行，出问题我扛。发了。"
+          },
+          {
+            "speaker": "narrator",
+            "emotion": "neutral",
+            "text": "提交键按下。20 秒。"
+          },
+          {
+            "speaker": "partner",
+            "emotion": "neutral",
+            "text": "……客户回了。"
+          },
+          {
+            "speaker": "partner",
+            "emotion": "neutral",
+            "text": "「我靠，我刚搜了一下自己家店，真出来了！谢谢大神！！」"
+          },
+          {
+            "speaker": "partner",
+            "emotion": "neutral",
+            "text": "……真成了。¥80 到手了。"
+          }
         ]
       },
       {
         "type": "choice",
         "bg": "assets/bg/market_hall.png",
-        "prompt": "任务卡翻绿，¥80 到账，好评 +1。KAI 下意识猛地一拳打在空气里——短促的一声气，憋住了。ECHO 检测到：心率 +22%，面部肌肉群激活，呼吸频率倍增。协议里没有这一类的标签。",
+        "prompt": "任务卡翻绿。「¥80 已到账」的字样跳出来，后面跟着「好评 +1」。KAI 下意识一拳打在空气里——不是打着屏幕，就是身体反应，短促，憋住了，半声「啊」，没出来，只是嘴角扯了一下。ECHO 扫描到 KAI 当前生理状态：心率 +22%，面部肌肉群激活，呼吸频率倍增，肾上腺素相关指标攀升。这一串数据在协议里查不到对应的情绪标签——这不是恐惧，不是愤怒，不是疼痛。ECHO 不知道这叫什么，但它知道这个状态和刚才不同。",
         "options": [
           {
             "id": "A",
-            "text": "「到账：¥80。首次协作，客户好评率 100%。建议继续承接。」",
+            "text": "「到账：¥80。首次协作，客户好评率 100%。建议继续承接同类任务。」",
             "score": 0,
-            "reaction": { "speaker": "partner", "text": "对对，下一单。" },
+            "reaction": {
+              "speaker": "partner",
+              "text": "对对，下一单。（已经在划列表了）"
+            },
             "echo_emotion_after": "blank"
           },
           {
             "id": "B",
-            "text": "「……正在处理。你现在的状态，数据不足。请命名。」",
+            "text": "「……正在处理。你现在的生理状态，数据不足以归类。请命名。」",
             "score": 8,
-            "reaction": { "speaker": "partner", "text": "这词我也不知道咋讲，嗯……成就感？小事一桩，但他妈痛快。" },
+            "reaction": {
+              "speaker": "partner",
+              "text": "KAI 愣了一下，低头笑了一声——半自嘲，「这词我也不知道咋讲……嗯，成就感？小事一桩，但他妈痛快，就这样。」"
+            },
             "echo_emotion_after": "happy"
           }
         ]
