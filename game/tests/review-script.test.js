@@ -82,9 +82,9 @@ describe('reviewEpisode', () => {
     expect(violations.find(v => v.rule === 'feeling_spelled_out')).toBeDefined();
   });
 
-  it('flags screen 2-3 dialogue exceeding 250 char budget', () => {
+  it('flags screen 2-3 dialogue exceeding the new 1800 char budget', () => {
     const ep = makeEp();
-    const longText = '这是一段很长的对话'.repeat(40);
+    const longText = '这是一段很长的对话'.repeat(300); // ~2400 chars
     ep.screens[1].dialogue = [{ speaker: 'partner', emotion: 'neutral', text: longText }];
     const { passed, violations } = reviewEpisode(ep, { lang: 'zh', lockedTerms });
     expect(passed).toBe(false);

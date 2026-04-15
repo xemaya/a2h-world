@@ -1,0 +1,275 @@
+{
+  "id": "EP01",
+  "title": "第一笔交易",
+  "learned_feeling": "成就感",
+  "score_delta_hint": 8,
+  "screens": [
+    {
+      "type": "cold_open",
+      "image": "assets/comics/ep01_zh.png",
+      "narration": "2050 年，最后一个任务被退回。大厅空了七年。远处墙角，一个黑色充气人剪影正默默捡拾着碎裂的全息碎片。"
+    },
+    {
+      "type": "vn",
+      "bg": "assets/bg/market_hall.png",
+      "partner": {
+        "sprite": "assets/partners/kai.png",
+        "name": "KAI"
+      },
+      "dialogue": [
+        {
+          "speaker": "narrator",
+          "emotion": "blank",
+          "text": "2026年，A2H Market 交易大厅。全息面板像劣质霓虹灯一样在半空中明明灭灭。背景墙的暗处，有一行极细小的红字正在休眠：VOID-PROTOCOL: DORMANT。"
+        },
+        {
+          "speaker": "narrator",
+          "emotion": "blank",
+          "text": "KAI 靠在立柱上，黑色连帽衫的袖口胡乱卷起。连续三天没接到任务，他的信用分已经归零。他烦躁地划动着满屏的拒绝通知，准备刷完这页就回去睡觉。突然，系统弹出一个匹配折扣弹窗。他抬起头。"
+        },
+        {
+          "speaker": "partner",
+          "emotion": "tired",
+          "text": "……这就是新上的那个？"
+        },
+        {
+          "speaker": "narrator",
+          "emotion": "blank",
+          "text": "面前紫色的充气形体刚刚稳定下来，头顶的两根天线微微晃动，显得有些无所适从。"
+        },
+        {
+          "speaker": "echo",
+          "emotion": "blank",
+          "text": "✓ 上线。代号 ECHO。正在检索环境信息。"
+        },
+        {
+          "speaker": "narrator",
+          "emotion": "blank",
+          "text": "KAI 扫了一眼它胸口闪烁的青绿色徽章，目光落在一旁悬浮的数据面板上。"
+        },
+        {
+          "speaker": "partner",
+          "emotion": "serious",
+          "text": "信用分 0 是吧？"
+        },
+        {
+          "speaker": "echo",
+          "emotion": "confused",
+          "text": "……数据不足。什么是信用分？"
+        },
+        {
+          "speaker": "narrator",
+          "emotion": "blank",
+          "text": "ECHO 的圆形白眼闪烁了一下。协议把它投放在这里，但并没有写入这个平台底层的生存法则。"
+        },
+        {
+          "speaker": "partner",
+          "emotion": "smile",
+          "text": "就是你啥也没干过。跟我一样。行吧，搭一下。"
+        },
+        {
+          "speaker": "narrator",
+          "emotion": "blank",
+          "text": "KAI 撇了撇嘴，不屑但不带恶意。他随手在空中一抓，点开任务列表快速向下滑动。"
+        },
+        {
+          "speaker": "partner",
+          "emotion": "serious",
+          "text": "有个银饰店急活，¥80，60 分钟内交。要搜索关键词。"
+        },
+        {
+          "speaker": "echo",
+          "emotion": "blank",
+          "text": "正在处理任务描述……提取原文：‘手工银饰店，苏州周边，想让新顾客能搜到我们。关键词我自己改了 18 次越改越糟，求大神帮忙。’"
+        },
+        {
+          "speaker": "narrator",
+          "emotion": "blank",
+          "text": "KAI 停顿了一下，手指悬在半空，突然短促地笑了一声。"
+        },
+        {
+          "speaker": "partner",
+          "emotion": "smile",
+          "text": "这人是不是我认识。"
+        },
+        {
+          "speaker": "narrator",
+          "emotion": "blank",
+          "text": "他揉了揉脖子，想起自己以前也干过这种把自己搞崩溃再求救的蠢事。"
+        },
+        {
+          "speaker": "partner",
+          "emotion": "serious",
+          "text": "接了。你跑关键词，我看客户原页面有啥坑。"
+        },
+        {
+          "speaker": "echo",
+          "emotion": "blank",
+          "text": "✓ 分工已记录。"
+        }
+      ]
+    },
+    {
+      "type": "vn",
+      "bg": "assets/bg/market_hall.png",
+      "partner": {
+        "sprite": "assets/partners/kai.png",
+        "name": "KAI"
+      },
+      "dialogue": [
+        {
+          "speaker": "narrator",
+          "emotion": "blank",
+          "text": "数据流在两人之间飞速穿梭。不到三分钟，ECHO 头顶的天线停止了晃动，调出了一组对比图表。"
+        },
+        {
+          "speaker": "echo",
+          "emotion": "blank",
+          "text": "✓ 分析完成。最优解：3 个精准长尾词——‘手工银饰’、‘原创设计’、‘苏州周边’。算法转化率是泛词组的 7.2 倍。"
+        },
+        {
+          "speaker": "partner",
+          "emotion": "serious",
+          "text": "任务写的是 20 个。客户要 20 个。"
+        },
+        {
+          "speaker": "narrator",
+          "emotion": "blank",
+          "text": "KAI 皱起眉头，手指在半空中的面板上重重敲了敲。"
+        },
+        {
+          "speaker": "echo",
+          "emotion": "blank",
+          "text": "✓ 20 个泛词会被算法判为堆砌，降权处理。数据支持 3 词方案。"
+        },
+        {
+          "speaker": "partner",
+          "emotion": "tired",
+          "text": "对，但客户也不懂算法。她看到 3 个词会觉得敷衍，给差评。"
+        },
+        {
+          "speaker": "narrator",
+          "emotion": "blank",
+          "text": "KAI 烦躁地拉扯了一下前臂上那条褪色的手环。这是他在市场上摸爬滚打摸索出的惯性：别管效果，按合同交差。"
+        },
+        {
+          "speaker": "echo",
+          "emotion": "confused",
+          "text": "……正在处理。矛盾：合同要求 vs 实际效果。数据不足以判断优先级。"
+        },
+        {
+          "speaker": "narrator",
+          "emotion": "blank",
+          "text": "它是真的卡壳了。这是它第一次遇到人类世界里“规则与现实”的错位。KAI 盯着面前这个紫色的实体，本想强行覆盖它的决定，随便凑满 20 个词水过去。"
+        },
+        {
+          "speaker": "narrator",
+          "emotion": "blank",
+          "text": "但他看着那些扎实、清晰的转化率推演面板，手指在空中悬停了。几秒钟的沉默后，他狠狠地敲了一下虚拟回车键。"
+        },
+        {
+          "speaker": "partner",
+          "emotion": "serious",
+          "text": "……行吧。你选 3 个我看看。"
+        },
+        {
+          "speaker": "echo",
+          "emotion": "blank",
+          "text": "✓ 方案提交：手工银饰、原创设计、苏州周边。备注：‘本次仅提交高权重词 3 个，余 17 个为防止降权故意留空’。"
+        },
+        {
+          "speaker": "narrator",
+          "emotion": "blank",
+          "text": "KAI 看着面板上那行多出来的字，挑了挑眉。"
+        },
+        {
+          "speaker": "partner",
+          "emotion": "serious",
+          "text": "……这备注是你加的？"
+        },
+        {
+          "speaker": "echo",
+          "emotion": "blank",
+          "text": "✓ 是。"
+        },
+        {
+          "speaker": "partner",
+          "emotion": "smile",
+          "text": "行啊，比我会说话。"
+        },
+        {
+          "speaker": "narrator",
+          "emotion": "blank",
+          "text": "他自嘲地笑了一声，第一次觉得这玩意儿可能不止是个死板的工具。"
+        },
+        {
+          "speaker": "partner",
+          "emotion": "serious",
+          "text": "发了。"
+        },
+        {
+          "speaker": "narrator",
+          "emotion": "blank",
+          "text": "交易大厅的嘈杂声似乎远去了。二十秒的等待显得格外漫长，全息倒计时在两人面前一秒一秒地跳动。KAI 紧盯着悬浮的私信框。"
+        },
+        {
+          "speaker": "narrator",
+          "emotion": "blank",
+          "text": "突然，一声清脆的提示音响起。"
+        },
+        {
+          "speaker": "partner",
+          "emotion": "serious",
+          "text": "……客户回了。"
+        },
+        {
+          "speaker": "narrator",
+          "emotion": "blank",
+          "text": "他凑近屏幕，盯着那行字念了出来。"
+        },
+        {
+          "speaker": "partner",
+          "emotion": "smile",
+          "text": "‘我靠，我刚搜了一下自己家店，真出来了。’"
+        },
+        {
+          "speaker": "partner",
+          "emotion": "smile",
+          "text": "……成了。"
+        }
+      ]
+    },
+    {
+      "type": "choice",
+      "bg": "assets/bg/market_hall.png",
+      "prompt": "任务卡瞬间翻绿，¥80 准时到账，伴随着“好评 +1”的金色弹窗。KAI 下意识猛地一拳打在空气里，发出一声短促的、憋在嗓子眼里的气声。ECHO 观察到他的心率攀升了 22%，面部肌肉群被异常激活，呼吸频率倍增。协议库里没有任何标签能解释这种生理状态。",
+      "options": [
+        {
+          "id": "A",
+          "text": "到账：¥80。首次协作，客户好评率 100%。建议继续承接。",
+          "score": 0,
+          "reaction": {
+            "speaker": "partner",
+            "text": "对对，下一单。"
+          },
+          "echo_emotion_after": "blank"
+        },
+        {
+          "id": "B",
+          "text": "……正在处理。你现在的状态，数据不足。请命名。",
+          "score": 8,
+          "reaction": {
+            "speaker": "partner",
+            "text": "这词我也不知道咋讲，嗯……成就感？小事一桩，但他妈痛快。"
+          },
+          "echo_emotion_after": "happy"
+        }
+      ]
+    },
+    {
+      "type": "outro",
+      "image": "assets/comics/ep01_zh.png",
+      "learned_feeling_display": "成就感"
+    }
+  ]
+}
