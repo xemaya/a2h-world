@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Remove Solid Background - Canvas</title>
+  <style>
+    body {
+      font-family: monospace;
+      padding: 20px;
+      background: #1a1a1a;
+      color: #fff;
+    }
+    .container { max-width: 1200px; margin: 0 auto; }
+    canvas {
+      border: 2px solid #00ffcc;
+      margin: 10px 0;
+      background: repeating-conic-gradient(#808080 0% 25%, #404040 0% 50%) 50% / 20px 20px;
+    }
+    button {
+      background: #895AFF;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 5px;
+      cursor: pointer;
+      font-family: monospace;
+    }
+    button:hover { background: #a273ff; }
+    .controls { margin: 20px 0; padding: 20px; background: #2a2a2a; border-radius: 8px; }
+    .preview { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .preview-item { padding: 10px; background: #2a2a2a; border-radius: 8px; }
+    h3 { color: #00ffcc; margin-top: 0; }
+    input[type="file"] { display: block; margin: 10px 0; }
+    label { display: block; margin: 10px 0; }
+    input[type="number"] {
+      background: #1a1a1a;
+      color: white;
+      border: 1px solid #00ffcc;
+      padding: 5px;
+      width: 80px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎨 Sprite Background Remover</h1>
+    <p>Remove solid color background from sprites using Canvas API</p>
+
+    <div class="controls">
+      <h3>1. Select Image</h3>
+      <input type="file" id="fileInput" accept="image/*" multiple>
+
+      <h3>2. Configure</h3>
+      <label>
+        Target Background Color (RGB):
+        <input type="text" id="targetColor" value="0,0,0" placeholder="R,G,B">
+        <small>Example: 0,0,0 for black, 102,102,102 for grey</small>
+      </label>
+
+      <label>
+        Color Tolerance (0-255):
+        <input type="number" id="tolerance" value="30" min="0" max="255">
+        <small>Higher = more aggressive removal</small>
+      </label>
+
+      <button onclick="processAll()">🚀 Process All</button>
+      <button onclick="clearAll()">🗑️ Clear</button>
+    </div>
+
+    <div id="results"></div>
+  </div>
+
+  <script>
+    const fileInput = document.getElementById('fileInput');
+    const resultsDiv = document.getElementById('results');
+    let loadedImages = [];
+
+    fileInput.addEventListener('change', (e) => {
+      loadedImages = [];
+      resultsDiv.innerHTML = '';
+
+      for (const file of e.target.files) {
+        loadImage(file);
+      }
+    });
+
+    function loadImage(file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const img = new Image();
+        img.onload = () => {
+          loadedImages.push({ name: file.name, img });
+          displayImage(file.name, img);
+        };
+        img.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function displayImage(name, img) {
+      const div = document.createElement('div');
+      div.className = 'preview';
+      div.innerHTML = `
+        <div class="preview-item">
+          <h3>Original: ${name}</h3>
+          <canvas id="original-${name}"></canvas>
+        </div>
+        <div class="preview-item">
+          <h3>Processed: ${name}</h3>
+          <canvas id="processed-${name}"></canvas>
+          <button onclick="downloadCanvas('processed-${name}', '${name}')">⬇️ Download</button>
+        </div>
+      `;
+      resultsDiv.appendChild(div);
+
+      // Draw original
+      const originalCanvas = document.getElementById(`original-${name}`);
+      originalCanvas.width = img.width;
+      originalCanvas.height = img.height;
+      const octx = originalCanvas.getContext('2d');
+      octx.drawImage(img, 0, 0);
+    }
+
+    function processAll() {
+      const targetColorStr = document.getElementById('targetColor').value;
+      const tolerance = parseInt(document.getElementById('tolerance').value);
+      const [targetR, targetG, targetB] = targetColorStr.split(',').map(v => parseInt(v.trim()));
+
+      for (const {name, img} of loadedImages) {
+        processImage(name, img, targetR, targetG, targetB, tolerance);
+      }
+    }
+
+    function processImage(name, img, targetR, targetG, targetB, tolerance) {
+      const canvas = document.getElementById(`processed-${name}`);
+      if (!canvas) return;
+
+      canvas.width = img.width;
+      canvas.height = img.height;
+      const ctx = canvas.getContext('2d');
+
+      // Draw image
+      ctx.drawImage(img, 0, 0);
+
+      // Get pixel data
+      const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      const data = imageData.data; // Uint8ClampedArray [R,G,B,A, R,G,B,A, ...]
+
+      let removed = 0;
+
+      // Process each pixel
+      for (let i = 0; i < data.length; i += 4) {
+        const r = data[i];
+        const g = data[i + 1];
+        const b = data[i + 2];
+        const a = data[i + 3];
+
+        // Check if color is within tolerance of target
+        if (
+          Math.abs(r - targetR) <= tolerance &&
+          Math.abs(g - targetG) <= tolerance &&
+          Math.abs(b - targetB) <= tolerance
+        ) {
+          data[i + 3] = 0; // Set alpha to 0 (transparent)
+          removed++;
+        }
+      }
+
+      // Put processed data back
+      ctx.putImageData(imageData, 0, 0);
+
+      console.log(`${name}: Removed ${removed} pixels (${(removed / (data.length / 4) * 100).toFixed(1)}%)`);
+    }
+
+    function downloadCanvas(canvasId, originalName) {
+      const canvas = document.getElementById(canvasId);
+      if (!canvas) return;
+
+      canvas.toBlob((blob) => {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = originalName.replace(/\.[^.]+$/, '_transparent.png');
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      }, 'image/png');
+    }
+
+    function clearAll() {
+      loadedImages = [];
+      resultsDiv.innerHTML = '';
+      fileInput.value = '';
+    }
+  </script>
+</body>
+</html>

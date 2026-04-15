@@ -22,7 +22,7 @@ export function reduce(s, action) {
 
     case 'NEXT': {
       const screen = currentScreen(s);
-      if (screen.type === 'cold_open') {
+      if (screen.type === 'story_intro' || screen.type === 'cold_open') {
         return { ...s, screenIdx: s.screenIdx + 1, lineIdx: 0 };
       }
       if (screen.type === 'vn') {
