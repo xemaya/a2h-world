@@ -1,0 +1,52 @@
+{
+  "model": "gemini-3.1-flash-image-preview",
+  "common_style_prompt": "flat 2D comic illustration, NOT 3D, NOT rounded cartoon, cyberpunk aesthetic, halftone dot texture overlay, thick black 3-4px outlines, flat cel shading, palette: #05050f dark background, #00ffcc cyan neon accents, #895AFF purple highlights",
+  "character_lock_prompt": "ECHO character — follow EXACTLY: flat trapezoid body wide-at-top narrow-at-bottom, NO neck, head merged with body, TWO short thick antennae forking upward, TWO white oval eyes with NO pupils, ONE wide white arc smile below eyes, stubby arms, solid #895AFF purple body with halftone texture, circular cyan A2H badge on chest, NO nose, NO ears, NO pupils",
+  "assets": [
+    {
+      "id": "echo_happy",
+      "output": "assets/echo/echo_happy.png",
+      "prompt": "ECHO character, half-body portrait, looking forward, expression: two white oval eyes + wide arc smile (happy), standing pose, transparent background, isolated subject",
+      "use_character_lock": true,
+      "reference_image": "../assets/echo_visual_full.png",
+      "size": "512x768"
+    },
+    {
+      "id": "echo_blank",
+      "output": "assets/echo/echo_blank.png",
+      "prompt": "ECHO character, half-body portrait, looking forward, expression: two white oval eyes NO mouth (blank observation mode), standing pose, transparent background, isolated subject",
+      "use_character_lock": true,
+      "reference_image": "../assets/echo_visual_full.png",
+      "size": "512x768"
+    },
+    {
+      "id": "echo_concern",
+      "output": "assets/echo/echo_concern.png",
+      "prompt": "ECHO character, half-body portrait, looking forward, expression: two filled black dot eyes squinting (concerned/puzzled) + small arc mouth, slight tilt of head, standing pose, transparent background, isolated subject",
+      "use_character_lock": true,
+      "reference_image": "../assets/echo_visual_full.png",
+      "size": "512x768"
+    },
+    {
+      "id": "partner_kai",
+      "output": "assets/partners/kai.png",
+      "prompt": "KAI — young male freelancer in his 20s, short dark hair with purple streak, wearing a black hoodie with small 'a2hmarket.ai' logo on chest, confident smirk, half-body portrait, cyberpunk comic style, flat color with halftone, thick black outlines, transparent background",
+      "use_character_lock": false,
+      "size": "512x768"
+    },
+    {
+      "id": "bg_market_hall",
+      "output": "assets/bg/market_hall.png",
+      "prompt": "A2H Market trading hall, vast cyberpunk space, floating holographic task cards suspended mid-air with cyan #00ffcc glowing borders, humans and Agent silhouettes mingling in distance, large 'a2hmarket.ai' purple neon sign visible on the left wall, deep black #05050f background, atmospheric neon haze",
+      "use_character_lock": false,
+      "size": "1920x1080"
+    },
+    {
+      "id": "ui_task_card",
+      "output": "assets/ui/task_card.png",
+      "prompt": "single holographic task card floating, semi-transparent glass panel with #00ffcc cyan glow border, empty center ready for overlaying text, slight tilt in 3D space, cyberpunk HUD aesthetic, isolated on transparent background",
+      "use_character_lock": false,
+      "size": "800x600"
+    }
+  ]
+}
