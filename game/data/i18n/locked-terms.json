@@ -1,0 +1,43 @@
+{
+  "locked_identical_both_langs": [
+    "A2H Market",
+    "A2H UNIVERSE",
+    "ECHO",
+    "VOID",
+    "a2hmarket.ai"
+  ],
+  "locked_pairs": {
+    "没有全能的个体，只有互补的进化": "No omnipotent individuals, only complementary evolution.",
+    "互补": "complementary",
+    "进化": "evolution",
+    "共生": "symbiosis",
+    "A2H UNIVERSE": "A2H UNIVERSE"
+  },
+  "forbidden_phrases_zh": [
+    "让我们一起",
+    "在这个.+的时代",
+    "这不仅是.+更是",
+    "拥抱变化",
+    "赋能",
+    "无缝",
+    "生态",
+    "闭环"
+  ],
+  "forbidden_phrases_en": [
+    "Let's together",
+    "In this era of",
+    "This is not just .+ but also",
+    "empower",
+    "seamlessly",
+    "synergy",
+    "ecosystem"
+  ],
+  "echo_mandatory_phrases_zh": [
+    "✓",
+    "……记录中"
+  ],
+  "echo_mandatory_phrases_en": [
+    "✓",
+    "Recording"
+  ]
+}
