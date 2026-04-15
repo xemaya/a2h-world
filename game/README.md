@@ -13,8 +13,10 @@ npm test
 
 ## Asset pipeline (build-time only)
 
+Image generation uses Google's Gemini image model (`gemini-3.1-flash-image-preview`, internally nicknamed "nano-banana") via REST. No separate CLI to install — just set `GEMINI_API_KEY` in `.env`.
+
 ```bash
-npm run verify:models        # confirm Gemini model names are current
-npm run gen:assets           # batch-generate via nano-banana
-npm run review:script        # validate script JSON against 9 hard constraints
+npm run verify:models        # list available Gemini models, confirm the expected names
+npm run gen:assets           # batch-generate images via Gemini image API
+npm run review:script        # validate script JSON against 9 hard constraints from spec §3.3
 ```
