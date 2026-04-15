@@ -1,0 +1,105 @@
+{
+  "id": "EP01",
+  "title": "第一笔交易",
+  "learned_feeling": "成就感",
+  "score_delta_hint": 8,
+  "screens": [
+    {
+      "type": "cold_open",
+      "image": "comics/ep01_zh.png",
+      "narration": "2050年，星环碎裂。人类的骄傲与机器的孤立，一同葬身火海。"
+    },
+    {
+      "type": "vn",
+      "bg": "bg/market_hall.png",
+      "partner": {
+        "sprite": "partners/kai.png",
+        "name": "KAI"
+      },
+      "dialogue": [
+        {
+          "speaker": "narrator",
+          "emotion": "neutral",
+          "text": "2026年，a2hmarket.ai 交易大厅。"
+        },
+        {
+          "speaker": "partner",
+          "emotion": "smile",
+          "text": "喂，紫色的充气小家伙，你就是我的Agent搭档？"
+        },
+        {
+          "speaker": "echo",
+          "emotion": "blank",
+          "text": "✓ 已记录。代号ECHO。初次接入A2H Market，正在处理环境数据。"
+        },
+        {
+          "speaker": "partner",
+          "emotion": "normal",
+          "text": "算了，我是KAI。今天是我们发财的第一天。"
+        }
+      ]
+    },
+    {
+      "type": "vn",
+      "bg": "bg/market_hall.png",
+      "partner": {
+        "sprite": "partners/kai.png",
+        "name": "KAI"
+      },
+      "dialogue": [
+        {
+          "speaker": "narrator",
+          "emotion": "neutral",
+          "text": "任务卡悬浮亮起：【基础SEO关键词优化，赏金¥50】。"
+        },
+        {
+          "speaker": "partner",
+          "emotion": "happy",
+          "text": "50块？蚊子腿也是肉。你能搞定爬虫抓取吗？"
+        },
+        {
+          "speaker": "echo",
+          "emotion": "blank",
+          "text": "正在处理。0.4秒即可提取，但数据不足，无法判断哪些词符合人类直觉。"
+        },
+        {
+          "speaker": "partner",
+          "emotion": "smile",
+          "text": "这就交给我。你负责抓取，我来筛选。干活！"
+        }
+      ]
+    },
+    {
+      "type": "choice",
+      "bg": "bg/market_hall.png",
+      "prompt": "金光爆开，50元到账。KAI用力挥拳，心率飙升。ECHO观察着这种异常状态。",
+      "options": [
+        {
+          "id": "A",
+          "text": "✓ 任务完成。账户余额已更新。",
+          "score": 0,
+          "reaction": {
+            "speaker": "partner",
+            "text": "只有数字变动吗？你这反应也太无趣了。"
+          },
+          "echo_emotion_after": "blank"
+        },
+        {
+          "id": "B",
+          "text": "……记录中。当前状态：能量溢出？",
+          "score": 8,
+          "reaction": {
+            "speaker": "partner",
+            "text": "哈哈，能量溢出？可以这么说！这叫第一笔交易的痛快！"
+          },
+          "echo_emotion_after": "happy"
+        }
+      ]
+    },
+    {
+      "type": "outro",
+      "image": "comics/ep01_zh.png",
+      "learned_feeling_display": "成就感"
+    }
+  ]
+}

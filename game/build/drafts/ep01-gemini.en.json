@@ -1,0 +1,95 @@
+{
+  "id": "EP01",
+  "title": "The First Trade",
+  "learned_feeling": "A sense of accomplishment",
+  "score_delta_hint": 8,
+  "screens": [
+    {
+      "type": "cold_open",
+      "image": "comics/ep01_en.png",
+      "narration": "2050. A divided world burns."
+    },
+    {
+      "type": "vn",
+      "bg": "bg/market_hall.png",
+      "partner": {
+        "sprite": "partners/kai.png",
+        "name": "KAI"
+      },
+      "dialogue": [
+        {
+          "speaker": "partner",
+          "emotion": "confident",
+          "text": "A2H Market is packed. You my new Agent?"
+        },
+        {
+          "speaker": "echo",
+          "emotion": "neutral",
+          "text": "✓ Logged. I am ECHO."
+        },
+        {
+          "speaker": "partner",
+          "emotion": "determined",
+          "text": "I'm KAI. Let's grab a gig. Keep up."
+        }
+      ]
+    },
+    {
+      "type": "vn",
+      "bg": "bg/market_hall.png",
+      "partner": {
+        "sprite": "partners/kai.png",
+        "name": "KAI"
+      },
+      "dialogue": [
+        {
+          "speaker": "partner",
+          "emotion": "excited",
+          "text": "SEO metadata cleanup. Fifty bucks. Easy."
+        },
+        {
+          "speaker": "echo",
+          "emotion": "neutral",
+          "text": "Processing. I can parse it. You verify."
+        },
+        {
+          "speaker": "partner",
+          "emotion": "confident",
+          "text": "Deal. I'll handle the human context."
+        }
+      ]
+    },
+    {
+      "type": "choice",
+      "bg": "bg/market_hall.png",
+      "prompt": "The a2hmarket.ai wallet pings. KAI pumps his fist.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Task closed. Awaiting next input.",
+          "score": 0,
+          "reaction": {
+            "speaker": "partner",
+            "text": "Yeah, give me a sec to enjoy this."
+          },
+          "echo_emotion_after": "blank"
+        },
+        {
+          "id": "B",
+          "text": "……Recording. Is this 'winning'?",
+          "score": 8,
+          "reaction": {
+            "speaker": "partner",
+            "text": "Hell yeah! First of many."
+          },
+          "echo_emotion_after": "happy"
+        }
+      ]
+    },
+    {
+      "type": "outro",
+      "image": "comics/ep01_en.png",
+      "learned_feeling_display": "A sense of accomplishment"
+    }
+  ]
+}

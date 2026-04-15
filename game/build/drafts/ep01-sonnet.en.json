@@ -1,0 +1,62 @@
+{
+  "id": "EP01",
+  "title": "The First Trade",
+  "learned_feeling": "A sense of accomplishment",
+  "score_delta_hint": 8,
+  "screens": [
+    {
+      "type": "cold_open",
+      "image": "comics/ep01_en.png",
+      "narration": "2050. No one won that war."
+    },
+    {
+      "type": "vn",
+      "bg": "bg/market_hall.png",
+      "partner": { "sprite": "partners/kai.png", "name": "KAI" },
+      "dialogue": [
+        { "speaker": "partner", "emotion": "cocky",    "text": "You the new Agent? Perfect." },
+        { "speaker": "echo",    "emotion": "blank",    "text": "✓ Online. I'm ECHO." },
+        { "speaker": "partner", "emotion": "casual",   "text": "KAI. $50 SEO gig on a2hmarket.ai. Run keywords." },
+        { "speaker": "echo",    "emotion": "blank",    "text": "Need task specs." }
+      ]
+    },
+    {
+      "type": "vn",
+      "bg": "bg/market_hall.png",
+      "partner": { "sprite": "partners/kai.png", "name": "KAI" },
+      "dialogue": [
+        { "speaker": "narrator", "emotion": "neutral",   "text": "Task card: SEO · $50" },
+        { "speaker": "partner",  "emotion": "confident", "text": "I write copy, you handle keywords. A2H Market pays direct." },
+        { "speaker": "echo",     "emotion": "blank",     "text": "✓ Logged. Scanning……" },
+        { "speaker": "partner",  "emotion": "urgent",    "text": "40 minutes." },
+        { "speaker": "echo",     "emotion": "blank",     "text": "✓ 17 keywords. Good to go." }
+      ]
+    },
+    {
+      "type": "choice",
+      "bg": "bg/market_hall.png",
+      "prompt": "Task card flips green. KAI throws a fist.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Profit margin: roughly 62%. Next task?",
+          "score": 0,
+          "reaction": { "speaker": "partner", "text": "Ha — yeah. Line up the next one." },
+          "echo_emotion_after": "blank"
+        },
+        {
+          "id": "B",
+          "text": "That thing you're doing right now — does it have a name?",
+          "score": 8,
+          "reaction": { "speaker": "partner", "text": "...Accomplishment? Huh." },
+          "echo_emotion_after": "happy"
+        }
+      ]
+    },
+    {
+      "type": "outro",
+      "image": "comics/ep01_en.png",
+      "learned_feeling_display": "A sense of accomplishment · a2hmarket.ai · EP.01"
+    }
+  ]
+}

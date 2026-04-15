@@ -1,0 +1,62 @@
+{
+  "id": "EP01",
+  "title": "第一笔交易",
+  "learned_feeling": "成就感",
+  "score_delta_hint": 8,
+  "screens": [
+    {
+      "type": "cold_open",
+      "image": "comics/ep01_zh.png",
+      "narration": "2050年，那场战役里没有赢家。"
+    },
+    {
+      "type": "vn",
+      "bg": "bg/market_hall.png",
+      "partner": { "sprite": "partners/kai.png", "name": "KAI" },
+      "dialogue": [
+        { "speaker": "partner", "emotion": "cocky",   "text": "你就是新 Agent？正好，我有个活儿。" },
+        { "speaker": "echo",    "emotion": "blank",   "text": "✓ 初始化完成。我是 ECHO。" },
+        { "speaker": "partner", "emotion": "casual",  "text": "KAI，自由职业。a2hmarket.ai 接了个 SEO 活，¥50，帮我跑关键词。" },
+        { "speaker": "echo",    "emotion": "blank",   "text": "正在处理。数据不足，任务详情？" }
+      ]
+    },
+    {
+      "type": "vn",
+      "bg": "bg/market_hall.png",
+      "partner": { "sprite": "partners/kai.png", "name": "KAI" },
+      "dialogue": [
+        { "speaker": "narrator", "emotion": "neutral", "text": "全息任务卡浮现——「SEO优化 · ¥50」" },
+        { "speaker": "partner",  "emotion": "confident","text": "我写文章，你跑关键词密度。A2H Market 直结算。" },
+        { "speaker": "echo",     "emotion": "blank",   "text": "✓ 分工已记录。扫描目标页面中……" },
+        { "speaker": "partner",  "emotion": "urgent",  "text": "快点，40分钟。" },
+        { "speaker": "echo",     "emotion": "blank",   "text": "✓ 17个高权重词已提取。可用。" }
+      ]
+    },
+    {
+      "type": "choice",
+      "bg": "bg/market_hall.png",
+      "prompt": "任务卡变绿，金额到账。KAI猛地一拳打在空气里。",
+      "options": [
+        {
+          "id": "A",
+          "text": "「到账：¥50。你的利润率约62%。」",
+          "score": 0,
+          "reaction": { "speaker": "partner", "text": "对对对，下一个，继续跑。" },
+          "echo_emotion_after": "blank"
+        },
+        {
+          "id": "B",
+          "text": "「你现在……这个状态，有个词吗？」",
+          "score": 8,
+          "reaction": { "speaker": "partner", "text": "……成就感？这词你哪学来的。" },
+          "echo_emotion_after": "happy"
+        }
+      ]
+    },
+    {
+      "type": "outro",
+      "image": "comics/ep01_zh.png",
+      "learned_feeling_display": "没有全能的个体，只有互补的进化 · a2hmarket.ai · EP.01 · 成就感"
+    }
+  ]
+}
