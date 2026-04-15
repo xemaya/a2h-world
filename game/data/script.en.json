@@ -6,6 +6,23 @@
     "score_delta_hint": 8,
     "screens": [
       {
+        "type": "story_intro",
+        "content": [
+          "2026. The Year of AI Agents.",
+          "Humans and Agents begin to collaborate on A2H Market.",
+          "",
+          "But 14 years later…",
+          "Trust collapsed. Conflict escalated.",
+          "When the alien fleet arrived in 2050, Earth fell due to internal strife.",
+          "",
+          "The last hope: ECHO.",
+          "An Agent sent back to 2026 with one mission—",
+          "Prove the value of symbiosis before the rift forms.",
+          "",
+          "This is ECHO's first day."
+        ]
+      },
+      {
         "type": "cold_open",
         "image": "assets/bg/ruins_2050.png",
         "narration": "2050. The last task card bounces back. The A2H Market hall has been completely dark for seven years."

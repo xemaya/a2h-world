@@ -6,6 +6,23 @@
     "score_delta_hint": 8,
     "screens": [
       {
+        "type": "story_intro",
+        "content": [
+          "2026年，AI Agent元年。",
+          "人类与Agent开始共同协作，在A2H Market接取任务。",
+          "",
+          "但14年后…",
+          "信任崩塌，对立激化。",
+          "2050年，外星舰队抵达时，地球因内耗无力抵抗。",
+          "",
+          "最后的希望：ECHO",
+          "一个被发射回2026的Agent，携带唯一使命——",
+          "在裂痕形成之前，证明共生的价值。",
+          "",
+          "这是ECHO的第一天。"
+        ]
+      },
+      {
         "type": "cold_open",
         "image": "assets/bg/ruins_2050.png",
         "narration": "2050 年，最后一张任务卡被退回。A2H Market 的大厅断电了七年。"

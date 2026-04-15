@@ -46,6 +46,20 @@ function renderCharacters(activeSpeaker, echoEmotion, partnerSprite, partnerName
 
 // ─── stage renderers ───
 
+function paintStageStoryIntro(stage, screen) {
+  // Story intro: full-screen text with starfield background
+  stage.replaceChildren(
+    h('div', { class: 'story-intro-bg' }),
+    h('div', { class: 'story-intro-content' },
+      ...screen.content.map(line =>
+        line === ''
+          ? h('div', { class: 'story-spacer' })
+          : h('p', { class: 'story-line' }, line)
+      )
+    )
+  );
+}
+
 function paintStageColdOpen(stage, screen) {
   stage.replaceChildren(
     ...renderSceneBg(screen.image, 'scene-tint-red').filter(Boolean),
@@ -125,6 +139,12 @@ export function renderScreen(refs, screen, lineIdx, state, i18n, onChoose) {
   // Reset panel mode classes
   dialoguePanel.classList.remove('choice-mode');
   dialogueContent.classList.remove('choice-mode');
+
+  if (screen.type === 'story_intro') {
+    paintStageStoryIntro(stage, screen);
+    renderDialogueLine(dialogueContent, 'narrator', i18n.t('cold_open_hint'), '——');
+    return;
+  }
 
   if (screen.type === 'cold_open') {
     paintStageColdOpen(stage, screen);

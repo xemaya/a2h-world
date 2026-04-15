@@ -148,6 +148,39 @@ body {
   to   { opacity: 1; transform: translateY(0); }
 }
 
+/* story intro screen */
+.story-intro-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background: radial-gradient(ellipse at 50% 30%, rgba(137,90,255,0.15) 0%, rgba(5,5,15,1) 70%),
+              linear-gradient(180deg, #0a0a18 0%, #05050f 100%);
+}
+.story-intro-content {
+  position: absolute; inset: 0; z-index: 1;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 60px 40px;
+  text-align: center;
+  animation: fadeIn 1s ease;
+}
+.story-line {
+  font-size: 18px; line-height: 2; color: var(--ink);
+  margin: 0; opacity: 0;
+  animation: fadeUp 800ms ease forwards;
+}
+.story-line:nth-child(1) { animation-delay: 200ms; }
+.story-line:nth-child(2) { animation-delay: 400ms; }
+.story-line:nth-child(3) { animation-delay: 1200ms; font-size: 16px; color: var(--muted); }
+.story-line:nth-child(4) { animation-delay: 1400ms; font-size: 16px; color: var(--muted); }
+.story-line:nth-child(5) { animation-delay: 1600ms; font-size: 16px; color: var(--muted); }
+.story-line:nth-child(6) { animation-delay: 2400ms; color: var(--cyan); font-weight: 600; }
+.story-line:nth-child(7) { animation-delay: 2600ms; font-size: 16px; }
+.story-line:nth-child(8) { animation-delay: 2800ms; font-size: 16px; }
+.story-line:nth-child(9) { animation-delay: 3600ms; color: var(--purple); font-weight: 700; font-size: 20px; }
+.story-spacer { height: 24px; }
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
 /* ─── dialogue panel (bottom, Claude-Code-style) ─── */
 .dialogue-footer {
   padding: 14px 20px 18px;
