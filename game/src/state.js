@@ -38,9 +38,15 @@ export function reduce(s, action) {
         return s;
       }
       if (screen.type === 'outro') {
-        return { ...s, episodeEnded: true };
+        // For now EP.01 is the only episode; NEXT on outro restarts the episode.
+        // Plan 4 will extend this to advance to next episode or show end-of-season screen.
+        return restartEpisode(s);
       }
       return s;
+    }
+
+    case 'RESTART': {
+      return restartEpisode(s);
     }
 
     case 'CHOOSE': {
@@ -60,6 +66,18 @@ export function reduce(s, action) {
     default:
       return s;
   }
+}
+
+function restartEpisode(s) {
+  return {
+    ...s,
+    screenIdx: 0,
+    lineIdx: 0,
+    learningScore: 0,
+    choices: {},
+    chosenOption: undefined,
+    episodeEnded: false
+  };
 }
 
 export function currentView(s) {

@@ -81,4 +81,25 @@ describe('state machine', () => {
     const s = reduce(initialState({ 'EP01': ep01 }, 'EP01'), { type: 'SET_LANG', lang: 'en' });
     expect(s.lang).toBe('en');
   });
+
+  it('RESTART resets screen/line/score/choices, preserves lang', () => {
+    let s = initialState({ 'EP01': ep01 }, 'EP01');
+    s = { ...s, screenIdx: 4, lineIdx: 0, learningScore: 8, choices: { EP01: 'B' }, chosenOption: 'B', lang: 'en' };
+    const after = reduce(s, { type: 'RESTART' });
+    expect(after.screenIdx).toBe(0);
+    expect(after.lineIdx).toBe(0);
+    expect(after.learningScore).toBe(0);
+    expect(after.choices).toEqual({});
+    expect(after.chosenOption).toBeUndefined();
+    expect(after.lang).toBe('en');
+  });
+
+  it('NEXT on outro restarts the episode (single-episode demo)', () => {
+    let s = initialState({ 'EP01': ep01 }, 'EP01');
+    s = { ...s, screenIdx: 4, learningScore: 8, choices: { EP01: 'B' } };
+    const after = reduce(s, { type: 'NEXT' });
+    expect(after.screenIdx).toBe(0);
+    expect(after.learningScore).toBe(0);
+    expect(after.choices).toEqual({});
+  });
 });

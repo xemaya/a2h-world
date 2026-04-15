@@ -42,6 +42,7 @@ async function boot() {
   const stage = document.querySelector('#stage');
   const nextBtn = document.querySelector('[data-slot="next"]');
   const langBtn = document.querySelector('[data-slot="lang-toggle"]');
+  const restartBtn = document.querySelector('[data-slot="restart"]');
   const progressFill = document.querySelector('[data-slot="progress-fill"]');
   const progressValue = document.querySelector('[data-slot="progress-value"]');
   const progressLabel = document.querySelector('[data-slot="progress-label"]');
@@ -64,8 +65,9 @@ async function boot() {
     epLabel.textContent = `EP.${episode.id.slice(2)}`;
     langBtn.textContent = i18n.t('lang_toggle');
 
-    nextBtn.textContent = i18n.t('next');
+    nextBtn.textContent = screenWithAssets.type === 'outro' ? i18n.t('restart') : i18n.t('next');
     nextBtn.disabled = (screenWithAssets.type === 'choice' && lineIdx === 0);
+    restartBtn.title = i18n.t('restart');
   }
 
   nextBtn.addEventListener('click', () => {
@@ -78,6 +80,12 @@ async function boot() {
     const newLang = state.lang === 'zh' ? 'en' : 'zh';
     i18n.setLang(newLang);
     state = { ...state, lang: newLang, script: scripts[newLang] };
+    saveProgress(state);
+    paint();
+  });
+
+  restartBtn.addEventListener('click', () => {
+    state = reduce(state, { type: 'RESTART' });
     saveProgress(state);
     paint();
   });

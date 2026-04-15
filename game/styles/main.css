@@ -35,12 +35,14 @@ body {
 .hud-progress { display: flex; align-items: center; gap: 10px; }
 .progress-track { width: 180px; height: 4px; background: rgba(255,255,255,0.08); border-radius: 2px; overflow: hidden; }
 .progress-fill { height: 100%; background: linear-gradient(90deg, var(--purple), var(--cyan)); transition: width 300ms ease; width: 0%; }
-.hud-lang {
+.hud-actions { display: flex; gap: 8px; align-items: center; }
+.hud-lang, .hud-restart {
   background: transparent; border: 1px solid var(--panel-border); color: var(--ink);
   padding: 4px 10px; font-family: var(--font-mono); font-size: 12px; cursor: pointer;
   border-radius: 3px; transition: background 150ms;
 }
-.hud-lang:hover { background: var(--panel); }
+.hud-restart { padding: 4px 8px; font-size: 14px; }
+.hud-lang:hover, .hud-restart:hover { background: var(--panel); border-color: var(--cyan); }
 
 #stage { position: relative; overflow: hidden; }
 
