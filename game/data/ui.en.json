@@ -1,0 +1,16 @@
+{
+  "game_title": "ECHO",
+  "game_subtitle": "A message from 2050",
+  "start": "Start",
+  "continue": "Continue",
+  "next": "Next ▸",
+  "next_episode": "Next episode ▸",
+  "learning_progress": "Learning progress",
+  "episode_label": "EP.",
+  "learned_label": "ECHO learned",
+  "task_card_title": "A2H Market · Task",
+  "lang_toggle": "中",
+  "restart": "Restart",
+  "you_chose": "You chose",
+  "final_score": "Final learning progress"
+}

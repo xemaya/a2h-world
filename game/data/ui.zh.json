@@ -1,0 +1,16 @@
+{
+  "game_title": "ECHO",
+  "game_subtitle": "一封从 2050 发来的求救信",
+  "start": "开始",
+  "continue": "继续",
+  "next": "继续 ▸",
+  "next_episode": "下一集 ▸",
+  "learning_progress": "学习进度",
+  "episode_label": "EP.",
+  "learned_label": "ECHO 学到",
+  "task_card_title": "A2H Market · 任务",
+  "lang_toggle": "EN",
+  "restart": "重新开始",
+  "you_chose": "你选择了",
+  "final_score": "最终学习进度"
+}
