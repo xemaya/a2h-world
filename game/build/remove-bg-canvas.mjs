@@ -13,7 +13,7 @@ const gameRoot = join(__dirname, '..');
 
 // Configuration
 const TARGET_COLOR = { r: 0, g: 0, b: 0 }; // Black background
-const DEFAULT_TOLERANCE = 30;
+const DEFAULT_TOLERANCE = 40; // Higher to remove all white edges
 const KAI_TOLERANCE = 20; // Lower for KAI (black hoodie issue)
 
 const INPUT_DIR = join(gameRoot, 'assets/temp_raw');

@@ -7,7 +7,7 @@ KEY="REDACTED_GOOGLE_API_KEY"
 MODEL="gemini-3.1-flash-image-preview"
 API_URL="https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${KEY}"
 
-CHAR_LOCK="ECHO character — follow EXACTLY: flat trapezoid body wide-at-top narrow-at-bottom, NO neck, head merged with body, THREE short thick antennae sticking upward from top of head, TWO white oval eyes with NO pupils, stubby arms, solid #895AFF purple body with halftone texture, circular cyan (#00ffcc) A2H badge on chest, NO nose, NO ears, NO pupils, comic book style with thick black 3-4px outlines"
+CHAR_LOCK="ECHO character — follow EXACTLY: flat trapezoid body wide-at-top narrow-at-bottom, NO neck, head merged with body, THREE separate short thick antennae/antennas sticking straight upward from top of head (CRITICAL: must show all three antenna clearly, they are ECHO's signature feature), TWO white oval eyes with NO pupils, stubby arms, solid #895AFF purple body with halftone dot texture, CIRCULAR CYAN GLOWING BADGE ON CHEST CENTER with 'A2H' text inside (CRITICAL: badge is mandatory, must be visible and prominent, cyan color #00ffcc), NO nose, NO ears, NO pupils, comic book style with thick black 3-4px outlines"
 
 STYLE="flat 2D comic illustration, NOT 3D, NOT rounded cartoon, cyberpunk aesthetic, halftone dot texture overlay, thick black outlines, flat cel shading"
 
