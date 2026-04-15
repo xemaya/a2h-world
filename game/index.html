@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ECHO — A2H UNIVERSE</title>
+  <link rel="stylesheet" href="./styles/main.css">
+</head>
+<body>
+  <div id="app">
+    <header class="hud">
+      <span class="hud-ep" data-slot="ep-label">EP.01</span>
+      <div class="hud-progress">
+        <span data-slot="progress-label">学习进度</span>
+        <div class="progress-track"><div class="progress-fill" data-slot="progress-fill"></div></div>
+        <span data-slot="progress-value">0/100</span>
+      </div>
+      <button class="hud-lang" data-slot="lang-toggle">EN</button>
+    </header>
+
+    <main id="stage">
+      <!-- Screen renderers inject content here -->
+    </main>
+
+    <footer class="controls">
+      <button data-slot="next" class="next-btn">继续 ▸</button>
+    </footer>
+  </div>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
