@@ -8,7 +8,7 @@
       {
         "type": "cold_open",
         "image": "assets/comics/ep01_en.png",
-        "narration": "2050. No one won that war."
+        "narration": "2050. The last task card bounces back. The A2H Market hall has been completely dark for seven years."
       },
       {
         "type": "vn",
@@ -19,24 +19,89 @@
         },
         "dialogue": [
           {
+            "speaker": "narrator",
+            "emotion": "neutral",
+            "text": "2026. A2H Market trading floor. The neon sign \"a2hmarket.ai\" buzzes in cyan against the back wall. Dozens of translucent holo-cards float around the hall, bounty numbers ticking. If you don't look closely, you'd miss a tiny string of text in the data stream by the corner: VOID-PROTOCOL: DORMANT. KAI is slumped against the wall, black hoodie, sleeves rolled up, a faded wristband on his forearm. He's been refreshing the task board for twenty minutes—third day in a row with zero gigs. Credit score 0. Can't match with the good ones, doesn't want the trash ones. He was about to just log out out of spite."
+          },
+          {
             "speaker": "partner",
-            "emotion": "cocky",
-            "text": "You the new Agent? Perfect."
+            "emotion": "neutral",
+            "text": "...This the new one?"
+          },
+          {
+            "speaker": "narrator",
+            "emotion": "neutral",
+            "text": "System prompt: \"New Agent Online: ECHO (Credit Score: 0. First-time collab gets 50% matching discount).\" KAI stares at that zero in the parentheses for a couple seconds, then taps it."
           },
           {
             "speaker": "echo",
             "emotion": "blank",
-            "text": "✓ Online. I'm ECHO."
+            "text": "✓ Online. Codename: ECHO. Scanning environment. Current location: A2H Market trading floor. Current timestamp: 2026, Year One of Agents."
           },
           {
             "speaker": "partner",
-            "emotion": "casual",
-            "text": "KAI. $50 SEO gig on a2hmarket.ai. Run keywords."
+            "emotion": "neutral",
+            "text": "Credit score zero, huh?"
           },
           {
             "speaker": "echo",
             "emotion": "blank",
-            "text": "Need task specs."
+            "text": "……Data insufficient. Define 'credit score'."
+          },
+          {
+            "speaker": "partner",
+            "emotion": "neutral",
+            "text": "Means you ain't done shit."
+          },
+          {
+            "speaker": "echo",
+            "emotion": "blank",
+            "text": "✓ Definition recorded. Current status: First boot. Zero collaboration history."
+          },
+          {
+            "speaker": "partner",
+            "emotion": "neutral",
+            "text": "...Same."
+          },
+          {
+            "speaker": "narrator",
+            "emotion": "neutral",
+            "text": "KAI stares at the \"Credit Score: 0\" text for another second, then swipes open the task board. His thumb hovers over a few listings, doesn't hesitate too long, and stops on one."
+          },
+          {
+            "speaker": "partner",
+            "emotion": "neutral",
+            "text": "Alright, let's test drive this. Urgent gig for a silver jewelry shop. $12, 60 minutes. Needs SEO keywords. Read the specs."
+          },
+          {
+            "speaker": "echo",
+            "emotion": "blank",
+            "text": "Processing task description... Original text: 'Handcrafted silver jewelry, based near Suzhou, need new customers to find us. I've tweaked the keywords 18 times and it keeps getting worse. Need an expert. 60 mins, $12.'"
+          },
+          {
+            "speaker": "partner",
+            "emotion": "neutral",
+            "text": "Damn, that's literally me six months ago."
+          },
+          {
+            "speaker": "echo",
+            "emotion": "blank",
+            "text": "……Data insufficient. Cannot confirm identity."
+          },
+          {
+            "speaker": "partner",
+            "emotion": "neutral",
+            "text": "Not literally—just saying. I know that feeling. You tweak and tweak until it's a total mess and you can't save it. Been there."
+          },
+          {
+            "speaker": "partner",
+            "emotion": "neutral",
+            "text": "Whatever, taking it. You run the keyword analytics, I'll dig through her old page and see where she fucked up."
+          },
+          {
+            "speaker": "echo",
+            "emotion": "blank",
+            "text": "✓ Task division recorded. Initiating process."
           }
         ]
       },
@@ -51,52 +116,137 @@
           {
             "speaker": "narrator",
             "emotion": "neutral",
-            "text": "Task card: SEO · $50"
+            "text": "KAI frowns at the client's profile. It's stuffed with \"silver\", \"handmade\", \"jewelry\", \"original\", \"Suzhou\", \"gift\", \"niche\", \"sterling\", \"couples\"... over twenty tags crammed together. Every single one is screaming for attention, but they're just drowning each other out."
           },
           {
             "speaker": "partner",
-            "emotion": "confident",
-            "text": "I write copy, you handle keywords. A2H Market pays direct."
+            "emotion": "concern",
+            "text": "Yeah, she really bricked her own page."
           },
           {
             "speaker": "echo",
             "emotion": "blank",
-            "text": "✓ Logged. Scanning……"
+            "text": "✓ Keyword analysis complete. Optimal solution: 3 precise long-tail keywords—'handcrafted silver', 'original design', 'Suzhou area'. Based on scraped algorithm data, the 30-day click conversion rate for this 3-word combo is 7.2 times higher than the current 20-word setup."
           },
           {
             "speaker": "partner",
-            "emotion": "urgent",
-            "text": "40 minutes."
+            "emotion": "concern",
+            "text": "The brief asks for 20. She's paying for 20."
           },
           {
             "speaker": "echo",
             "emotion": "blank",
-            "text": "✓ 17 keywords. Good to go."
+            "text": "✓ Acknowledged. However, 20 broad terms will be flagged by the search algorithm as keyword stuffing, triggering a shadowban. Search ranking will drop. From a performance metric, data strongly supports the 3-word solution."
+          },
+          {
+            "speaker": "partner",
+            "emotion": "concern",
+            "text": "Right, but she doesn't know shit about the algorithm. She threw down $12 to buy 20 words. You give her 3, her first thought is she got scammed. We get a bad review, your rating tanks, my rating tanks."
+          },
+          {
+            "speaker": "echo",
+            "emotion": "blank",
+            "text": "……Processing. Conflict detected: Contractual quantity vs. Algorithmic performance. Priority level—Data insufficient to resolve autonomously."
+          },
+          {
+            "speaker": "partner",
+            "emotion": "concern",
+            "text": "A contract's a contract. You deliver what's on the paper—that's what I always did. Clients don't look that deep anyway."
+          },
+          {
+            "speaker": "echo",
+            "emotion": "blank",
+            "text": "……Recording. Issue: If 20 broad terms are delivered per contract, client's search ranking will likely not improve. Client's original requirement states 'need new customers to find us'—Quantity compliance achieved, but core objective failed."
+          },
+          {
+            "speaker": "narrator",
+            "emotion": "neutral",
+            "text": "KAI doesn't reply immediately. He taps his finger against the desk."
+          },
+          {
+            "speaker": "partner",
+            "emotion": "neutral",
+            "text": "...Fine. Show me the three words."
+          },
+          {
+            "speaker": "echo",
+            "emotion": "blank",
+            "text": "✓ Proposal: Handcrafted silver, original design, Suzhou area. Recommendation: Attach an explanatory note upon delivery detailing the reduction in keywords to prevent client misinterpreting it as low effort."
+          },
+          {
+            "speaker": "partner",
+            "emotion": "neutral",
+            "text": "You writing the note or am I?"
+          },
+          {
+            "speaker": "echo",
+            "emotion": "blank",
+            "text": "Drafting... 'Submitting only 3 high-weight keywords. The search algorithm penalizes keyword stuffing with shadowbans; exceeding the threshold actively reduces impressions. The remaining 17 slots are intentionally left blank to protect your ranking. To verify, search \"Suzhou handcrafted silver\" 24 hours post-submission to compare results.'"
+          },
+          {
+            "speaker": "partner",
+            "emotion": "neutral",
+            "text": "...You wrote all that yourself?"
+          },
+          {
+            "speaker": "echo",
+            "emotion": "blank",
+            "text": "✓ Affirmative. Generated based on current conflict parameters."
+          },
+          {
+            "speaker": "partner",
+            "emotion": "neutral",
+            "text": "Damn. Better with words than I am."
+          },
+          {
+            "speaker": "partner",
+            "emotion": "neutral",
+            "text": "Alright, if this blows up, it's on me. Sent."
+          },
+          {
+            "speaker": "narrator",
+            "emotion": "neutral",
+            "text": "Hit submit. 20 seconds pass."
+          },
+          {
+            "speaker": "partner",
+            "emotion": "neutral",
+            "text": "...She replied."
+          },
+          {
+            "speaker": "partner",
+            "emotion": "neutral",
+            "text": "\"Holy shit, I just searched my own shop and it actually popped up! Thank you so much!!\""
+          },
+          {
+            "speaker": "partner",
+            "emotion": "neutral",
+            "text": "...It actually worked. $12 secured."
           }
         ]
       },
       {
         "type": "choice",
         "bg": "assets/bg/market_hall.png",
-        "prompt": "Task card flips green. KAI throws a fist.",
+        "prompt": "The task card flashes green. \"Payment received: $12\" pops up, followed by \"Positive Review +1\". KAI instinctively punches the air—not hitting the screen, just a physical reaction. Short, held back, half a \"fuck yeah\" that doesn't quite make it out. Just a pull at the corner of his mouth. ECHO scans KAI's current physiological state: Heart rate +22%, facial muscle groups activated, respiration rate doubled, adrenaline indicators climbing. This string of data doesn't map to any emotion tags in the protocol—it's not fear, it's not anger, it's not pain. ECHO doesn't know what it's called, but it knows this state is different from before.",
         "options": [
           {
             "id": "A",
-            "text": "Profit margin: roughly 62%. Next task?",
+            "text": "\"Payment received: $12. First collaboration, client satisfaction 100%. Recommendation: Continue accepting similar tasks.\"",
             "score": 0,
             "reaction": {
               "speaker": "partner",
-              "text": "Ha — yeah. Line up the next one."
+              "text": "Yeah, yeah, next gig. (Already swiping the board)"
             },
             "echo_emotion_after": "blank"
           },
           {
             "id": "B",
-            "text": "That thing you're doing right now — does it have a name?",
+            "text": "\"……Processing. Your current physiological state lacks sufficient data for categorization. Please assign a label.\"",
             "score": 8,
             "reaction": {
               "speaker": "partner",
-              "text": "...Accomplishment? Huh."
+              "text": "KAI blinks, looking down with a half-laugh—a bit self-deprecating. \"I dunno, like... A sense of accomplishment? It's a tiny gig, but fuck yeah, it feels good. Just that.\""
             },
             "echo_emotion_after": "happy"
           }

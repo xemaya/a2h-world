@@ -35,19 +35,19 @@ export function reviewEpisode(ep, { lang = 'zh', lockedTerms, requireLockedTerms
     }
   }
 
-  // Rule B.3 — word budgets per screen (v2, per experience.json writing.1 + 审稿.4)
-  //   cold_open narration ≤ 60
-  //   vn1+vn2 combined ≤ 1800 (was 250 in v1 — too tight, caused cramping)
-  //   choice (prompt + options + reactions) ≤ 600
-  //   outro learned_feeling_display ≤ 50
-  if ((ep.screens[0].narration || '').length > 60) v('word_budget', `cold_open narration ${ep.screens[0].narration.length} > 60`);
+  // Rule B.3 — word budgets per screen, lang-aware (v3)
+  // Chinese is ~1.5-2x denser than English per character, so en budgets are ~3x zh.
+  const budgets = lang === 'en'
+    ? { cold: 180, vn: 5500, choice: 1500, outro: 150 }
+    : { cold: 60,  vn: 1800, choice: 600,  outro: 50 };
+  if ((ep.screens[0].narration || '').length > budgets.cold) v('word_budget', `cold_open narration ${ep.screens[0].narration.length} > ${budgets.cold}`);
   const mid = countChars(ep.screens, [1, 2]);
-  if (mid > 1800) v('word_budget', `vn screens 2+3 total ${mid} > 1800`);
+  if (mid > budgets.vn) v('word_budget', `vn screens 2+3 total ${mid} > ${budgets.vn}`);
   const ch = ep.screens[3];
   const choiceLen = (ch.prompt || '').length
     + ch.options.reduce((a, o) => a + o.text.length + o.reaction.text.length, 0);
-  if (choiceLen > 600) v('word_budget', `choice screen total ${choiceLen} > 600`);
-  if ((ep.screens[4].learned_feeling_display || '').length > 50) v('word_budget', `outro display > 50`);
+  if (choiceLen > budgets.choice) v('word_budget', `choice screen total ${choiceLen} > ${budgets.choice}`);
+  if ((ep.screens[4].learned_feeling_display || '').length > budgets.outro) v('word_budget', `outro display > ${budgets.outro}`);
 
   // Rule C.6 — forbidden AI-slop phrases
   for (const line of allLines) {
