@@ -2,6 +2,10 @@
 
 Single-page text AVG. See `../docs/specs/` for design and `../docs/superpowers/plans/` for implementation plans.
 
+## Live demo
+
+https://xemaya.github.io/a2h-world/ — EP.01 playable (zh/en), 40-min full season lands in Plans 2–4.
+
 ## Dev
 
 ```bash
