@@ -1,0 +1,37 @@
+{
+  "version": "0.1",
+  "lastUpdated": "2026-04-15",
+  "rules": {
+    "创意": [
+      { "id": 1, "rule": "每集必须有具体的前因后果：ECHO 为什么出现在这个场景、搭档为什么需要 Agent、任务为什么偏这个、关键选择为什么发生在这一刻。禁止'情境浮空'", "source": "EP.01 v1 失败反馈 2026-04-15" },
+      { "id": 2, "rule": "ECHO 本集要学的感受，必须'自然长出来'——由本集事件自然引出，不能由搭档念出来（'你学会了 X' 自动废稿）", "source": "初始规则" },
+      { "id": 3, "rule": "A/B 选项暧昧：必须让 3 个不同读者投票出现分歧。若一眼看出 B 是'对的'，废稿", "source": "初始规则（源于漫画样例推演）" },
+      { "id": 4, "rule": "'情境之酷'不能替代'逻辑之通'。一个华丽的镜头（比如任务卡爆开金光）如果因果不成立，不如朴素但自洽的场景", "source": "借鉴 Jin_Cocoon rule 7" },
+      { "id": 5, "rule": "ECHO 的世界观硬约束不可违反：不预言未来、不比喻、刚穿越对情绪是纯观察者", "source": "World Bible §1.3 + §2.1" }
+    ],
+    "写作": [
+      { "id": 1, "rule": "字数预算不再是 250 字上限——情节被压扁是 EP.01 v1 的主要死因。新标准：每集总文本（zh）2000-3000 字符，给情节呼吸空间", "source": "EP.01 v1 失败反馈" },
+      { "id": 2, "rule": "ECHO 声纹锁死：每个 vn 屏至少一句 ECHO 台词含 ✓ / 正在处理 / 数据不足 / ……记录中。英文 ✓ Logged / Processing / ……Recording", "source": "World Bible §2.1" },
+      { "id": 3, "rule": "搭档差异化：每集不同人类搭档必须用开场第 1 行就能识别（KAI 是自信 20 代自由职业者；EP.07 是怀疑论者；EP.11 是失联焦虑党等）", "source": "初始规则" },
+      { "id": 4, "rule": "禁用 AI 套话黑名单：让我们一起 / 在 X 的时代 / 这不仅是 X 更是 / 拥抱变化 / 赋能 / 无缝 / 生态 / 闭环。英文对应亦禁", "source": "初始规则" },
+      { "id": 5, "rule": "KAI 不能'温柔地引导 ECHO' ——KAI 是自顾自干活的 20 代，他对 ECHO 的情绪回应应该是下意识、简短、自我为中心的反应，不是为 ECHO 设计的台词", "source": "EP.01 v1 反面教材" },
+      { "id": 6, "rule": "cold_open 旁白不是标语，是一个具体画面的描述。'2050 年，那场战役里没有赢家' 太抽象——应该是'2050 年，最后一班人类和 Agent 还在互相撕咬'这类有画面感的一行", "source": "EP.01 v1 反面教材" },
+      { "id": 7, "rule": "'跟着主角一起发现' 优于 '旁白告诉你发生了什么'。ECHO 的穿越逻辑应该通过它自己的困惑慢慢暴露，不是一上来就'我是穿越来的 ECHO'", "source": "借鉴 Jin_Cocoon rule 22" },
+      { "id": 8, "rule": "A2H Market 任务必须像真任务：SEO 50 元太轻巧，换成有具体需求描述（'客户是做手工银饰的店主，想让自己的店在小红书搜索里排进前 20'）更可信", "source": "初始规则 + EP.01 v1 反面教材" }
+    ],
+    "审稿": [
+      { "id": 1, "rule": "因果链审计是 Literary Review 第 1 项硬门控：列出本集所有事件（ECHO 出现、KAI 接任务、任务执行、选择、ECHO 学到感受），逐条问'这为什么发生'。任一答'因为剧本需要'→退回 Planner", "source": "Jin_Cocoon rule 36 启发" },
+      { "id": 2, "rule": "信息暴露审计：每个'角色知道 X' 的动作，X 来自哪里？ECHO 初始状态下知道 KAI 会 SEO 吗？不知道的话怎么铺垫？", "source": "Jin_Cocoon rule 7 启发" },
+      { "id": 3, "rule": "反应非评判：屏 4 选项 A/B 的反应禁止任何'你说得对 / 你错了 / 正确答案 / good job'，让选择悬着", "source": "初始规则" },
+      { "id": 4, "rule": "字数预算（新）：cold_open ≤ 60 字；vn1+vn2 合计 ≤ 1500 字；choice 含选项+反应 ≤ 600 字；outro learned_feeling_display ≤ 50 字", "source": "EP.01 v1 反馈调整后" },
+      { "id": 5, "rule": "AI 味抽查：随机取 3 个段落，与'没有全能的个体，只有互补的进化' 的漫画样例对比文风。过于对称/排比/形容词堆砌 → 退回", "source": "Jin_Cocoon rule 50 启发" }
+    ],
+    "流程": [
+      { "id": 1, "rule": "Planner 先出 3 幕大纲，Generator 按大纲写。不允许 Generator 自由发挥", "source": "Jin_Cocoon 5-agent 流水线" },
+      { "id": 2, "rule": "A/B 双稿并行，不是挑一个——Opus 评审融合。融合后有矛盾的地方整稿重写，不 Frankenstein 拼接", "source": "EP.01 v1 反馈" },
+      { "id": 3, "rule": "Literary Review FAIL → 具体反馈给 Generator 重写（最多 2 轮）。不允许单轮通过就过闸", "source": "Jin_Cocoon rule 流程" },
+      { "id": 4, "rule": "Reader 玩测 < 4.5 → 退回 Planner 重做大纲（不是退回 Writer 润色）。防止陷在局部最优", "source": "Jin_Cocoon 读者角色" },
+      { "id": 5, "rule": "en 版在 zh 最终稿之后生成，按原 brief 独立本地化，不是翻译", "source": "设计 spec §5.4" }
+    ]
+  }
+}
