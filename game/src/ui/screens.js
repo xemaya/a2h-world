@@ -134,11 +134,12 @@ function renderChoiceOptions(panel, options, onChoose) {
 // ─── unified entry point (called per paint) ───
 
 export function renderScreen(refs, screen, lineIdx, state, i18n, onChoose) {
-  const { stage, dialoguePanel, dialogueContent } = refs;
+  const { stage, dialoguePanel, dialogueContent, choiceOptions } = refs;
 
   // Reset panel mode classes
   dialoguePanel.classList.remove('choice-mode');
   dialogueContent.classList.remove('choice-mode');
+  choiceOptions.replaceChildren(); // clear choice area
 
   if (screen.type === 'story_intro') {
     paintStageStoryIntro(stage, screen);
@@ -167,8 +168,8 @@ export function renderScreen(refs, screen, lineIdx, state, i18n, onChoose) {
     if (lineIdx === 0) {
       paintStageChoicePrompt(stage, screen);
       dialoguePanel.classList.add('choice-mode');
-      dialogueContent.classList.add('choice-mode');
-      renderChoiceOptions(dialogueContent, screen.options, onChoose);
+      renderChoiceOptions(choiceOptions, screen.options, onChoose);
+      renderDialogueLine(dialogueContent, 'narrator', i18n.t('choose_hint'), '——');
     } else {
       const chosen = screen.options.find(o => o.id === state.chosenOption);
       if (!chosen) return;

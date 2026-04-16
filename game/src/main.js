@@ -55,7 +55,8 @@ async function boot() {
   const refs = {
     stage: document.querySelector('#stage'),
     dialoguePanel: document.querySelector('.dialogue-panel'),
-    dialogueContent: document.querySelector('[data-slot="dialogue-content"]')
+    dialogueContent: document.querySelector('[data-slot="dialogue-content"]'),
+    choiceOptions: document.querySelector('[data-slot="choice-options"]')
   };
   const nextBtn = document.querySelector('[data-slot="next"]');
   const langBtn = document.querySelector('[data-slot="lang-toggle"]');

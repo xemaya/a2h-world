@@ -225,17 +225,22 @@ body {
 }
 .dialogue-content .text.narrator-italic { color: #c0c0d8; font-style: italic; font-size: 14.5px; }
 
-/* choice options rendered inside panel */
-.dialogue-content.choice-mode { display: flex; flex-direction: column; gap: 10px; }
+/* choice options area — above dialogue panel */
+.choice-options-area {
+  display: flex; flex-direction: column; gap: 10px;
+  padding: 0 0 12px;
+}
+.choice-options-area:empty { display: none; }
 .choice-option {
-  background: rgba(137,90,255,0.06);
-  border: 1px solid var(--panel-border);
+  background: var(--dialogue-bg);
+  border: 1px solid var(--panel-border-strong);
   color: var(--ink);
   padding: 14px 18px; font-size: 15px; text-align: left;
   font-family: var(--font-ui); cursor: pointer; border-radius: 10px;
   transition: all 180ms;
   line-height: 1.6;
   width: 100%;
+  backdrop-filter: blur(12px);
 }
 .choice-option:hover { background: rgba(0,255,204,0.08); border-color: var(--cyan); transform: translateX(3px); }
 .choice-option .option-id {
