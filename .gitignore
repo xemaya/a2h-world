@@ -19,3 +19,4 @@ build/cache/
 
 # Playwright MCP debug logs
 .playwright-mcp/
+*.swp
