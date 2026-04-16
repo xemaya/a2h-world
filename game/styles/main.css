@@ -192,7 +192,7 @@ body {
   border: 1px solid var(--panel-border-strong);
   border-radius: 14px;
   padding: 16px 18px 16px 22px;
-  display: flex; align-items: flex-end; gap: 14px;
+  display: flex; align-items: stretch; gap: 14px;
   box-shadow: 0 0 30px rgba(0,255,204,0.08), 0 4px 20px rgba(0,0,0,0.5);
   backdrop-filter: blur(12px);
   min-height: 120px;
@@ -200,7 +200,7 @@ body {
   transition: border-color 220ms;
 }
 .dialogue-panel:focus-within { border-color: var(--cyan); }
-.dialogue-content { flex: 1; min-width: 0; }
+.dialogue-content { flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: flex-start; }
 
 /* speaker row — like input label */
 .dialogue-content .speaker-row {
@@ -251,7 +251,7 @@ body {
   box-shadow: 0 0 18px rgba(137,90,255,0.5);
   flex-shrink: 0;
   transition: all 150ms;
-  align-self: center;
+  align-self: flex-end;
 }
 .next-btn:hover:not(:disabled) { background: #a273ff; box-shadow: 0 0 24px rgba(137,90,255,0.7); }
 .next-btn:disabled { background: rgba(100,100,130,0.35); box-shadow: none; cursor: not-allowed; color: rgba(232,232,245,0.35); }
