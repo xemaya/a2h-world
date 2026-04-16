@@ -1,0 +1,16 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e4]: EP.01
+    - generic [ref=e5]:
+      - generic [ref=e6]: 学习进度
+      - generic [ref=e8]: 0/100
+    - button "EN" [ref=e9] [cursor=pointer]
+  - main [ref=e10]:
+    - generic [ref=e21]:
+      - generic:
+        - img "ECHO"
+      - generic [ref=e23]:
+        - generic [ref=e24]: ECHO
+        - generic [ref=e25]: ✓ 初始化完成。我是 ECHO。
+  - contentinfo [ref=e14]:
+    - button "继续 ▸" [active] [ref=e15] [cursor=pointer]

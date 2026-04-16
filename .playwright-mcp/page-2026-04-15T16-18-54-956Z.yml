@@ -1,0 +1,19 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e4]: EP.01
+    - generic [ref=e5]:
+      - generic [ref=e6]: 学习进度
+      - generic [ref=e8]: 8/100
+    - generic [ref=e9]:
+      - button "↻" [ref=e10] [cursor=pointer]
+      - button "EN" [ref=e11] [cursor=pointer]
+  - main [ref=e12]:
+    - generic:
+      - img "KAI"
+      - img "ECHO"
+  - contentinfo [ref=e15]:
+    - generic [ref=e16]:
+      - generic [ref=e17]:
+        - generic [ref=e53]: KAI
+        - generic [ref=e54]: KAI 愣了一下，低头笑了一声——半自嘲，「这词我也不知道咋讲……嗯，成就感？小事一桩，但他妈痛快，就这样。」
+      - button "继续 ▸" [ref=e22] [cursor=pointer]

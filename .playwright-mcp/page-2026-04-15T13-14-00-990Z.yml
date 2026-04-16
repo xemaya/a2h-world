@@ -1,0 +1,15 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e4]: EP.01
+    - generic [ref=e5]:
+      - generic [ref=e6]: 学习进度
+      - generic [ref=e8]: 0/100
+    - button "EN" [ref=e9] [cursor=pointer]
+  - main [ref=e10]:
+    - generic [ref=e11]:
+      - generic [ref=e13]: 任务卡变绿，金额到账。KAI猛地一拳打在空气里。
+      - generic [ref=e14]:
+        - button "「到账：¥50。你的利润率约62%。」" [ref=e15] [cursor=pointer]
+        - button "「你现在……这个状态，有个词吗？」" [ref=e16] [cursor=pointer]
+  - contentinfo [ref=e17]:
+    - button "继续 ▸" [disabled] [ref=e18]

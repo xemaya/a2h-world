@@ -1,0 +1,17 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e4]: EP.01
+    - generic [ref=e5]:
+      - generic [ref=e6]: 学习进度
+      - generic [ref=e8]: 0/100
+    - button "EN" [ref=e9] [cursor=pointer]
+  - main [ref=e10]:
+    - generic [ref=e11]:
+      - generic:
+        - img "KAI"
+        - img "ECHO"
+      - generic [ref=e13]:
+        - generic [ref=e14]: KAI
+        - generic [ref=e15]: 你就是新 Agent？正好，我有个活儿。
+  - contentinfo [ref=e16]:
+    - button "继续 ▸" [ref=e17] [cursor=pointer]

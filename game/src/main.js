@@ -20,10 +20,6 @@ function resolveAssetPaths(episode, lang) {
     if (s.type === 'cold_open' || s.type === 'outro') {
       s.image = s.image.replace(/_(zh|en)\.png$/, `_${lang}.png`);
     }
-    if (s.type === 'vn' && s.partner?.sprite) {
-      // Use v2 sprite to bypass browser cache
-      s.partner.sprite = s.partner.sprite.replace('.png', '_v2.png');
-    }
   }
   return clone;
 }
