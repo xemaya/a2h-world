@@ -378,3 +378,14 @@ body {
   background: rgba(137,90,255,0.15);
   border-color: var(--cyan);
 }
+
+/* To Be Continued screen */
+.tbc-message {
+  text-align: center; margin: 40px 0;
+  font-size: 18px; line-height: 2; color: var(--ink);
+}
+.tbc-message .tbc-score {
+  margin-top: 20px; color: var(--cyan);
+  font-family: var(--font-mono); font-size: 16px;
+  letter-spacing: 0.08em;
+}

@@ -15,5 +15,12 @@
   "you_chose": "You chose",
   "final_score": "Final Evolution Progress",
   "cold_open_hint": "—— Click Next ▸ to enter 2026.",
-  "choose_hint": "Choose your response..."
+  "choose_hint": "Choose your response...",
+  "select_episode": "Select Episode",
+  "back_to_menu": "← Back to Menu",
+  "new_game": "New Game",
+  "continue_game": "Continue",
+  "chapter_select": "Chapter Select",
+  "tbc_title": "To Be Continued...",
+  "tbc_message": "ECHO's journey continues. More chapters coming soon."
 }

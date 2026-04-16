@@ -94,11 +94,11 @@ describe('state machine', () => {
     expect(after.lang).toBe('en');
   });
 
-  it('NEXT on outro returns to menu when last episode', () => {
+  it('NEXT on outro shows TBC when last episode', () => {
     let s = initialState({ 'EP01': ep01 }, 'EP01');
     s = { ...s, gameMode: 'playing', screenIdx: 4, learningScore: 8, choices: { EP01: 'B' } };
     const after = reduce(s, { type: 'NEXT' });
-    expect(after.gameMode).toBe('menu');
+    expect(after.gameMode).toBe('tbc');
     expect(after.completedEpisodes).toContain('EP01');
   });
 

@@ -4,7 +4,7 @@ import { initialState, reduce, currentView } from './state.js';
 import { createI18n } from './i18n.js';
 import { loadProgress, saveProgress, clearProgress } from './storage.js';
 import { renderScreen } from './ui/screens.js';
-import { renderMainMenu, renderChapterSelect } from './ui/menu.js';
+import { renderMainMenu, renderChapterSelect, renderToBeContinued } from './ui/menu.js';
 
 async function loadJson(path) {
   const res = await fetch(`${path}?v=${Date.now()}`);
@@ -110,6 +110,19 @@ async function boot() {
         },
         onSelectEpisode: (episodeId) => {
           state = reduce(state, { type: 'SELECT_EPISODE', episodeId });
+          saveProgress(state);
+          paint();
+        }
+      });
+      return;
+    }
+
+    if (state.gameMode === 'tbc') {
+      menuOverlay.style.display = 'flex';
+      hud.style.display = 'none';
+      renderToBeContinued(menuContent, state, i18n, {
+        onHome: () => {
+          state = reduce(state, { type: 'EXIT_TO_MENU' });
           saveProgress(state);
           paint();
         }

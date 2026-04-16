@@ -86,8 +86,8 @@ export function reduce(s, action) {
             completedEpisodes: completed
           };
         }
-        // Last episode — return to menu
-        return { ...s, gameMode: 'menu', completedEpisodes: completed };
+        // Last episode — show "to be continued"
+        return { ...s, gameMode: 'tbc', completedEpisodes: completed };
       }
       return s;
     }

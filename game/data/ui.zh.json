@@ -15,5 +15,12 @@
   "you_chose": "你选择了",
   "final_score": "最终进化进度",
   "cold_open_hint": "——点击继续 ▸ 进入 2026 年。",
-  "choose_hint": "选择你的回应…"
+  "choose_hint": "选择你的回应…",
+  "select_episode": "选择章节",
+  "back_to_menu": "← 返回主菜单",
+  "new_game": "新游戏",
+  "continue_game": "继续游戏",
+  "chapter_select": "章节选择",
+  "tbc_title": "未完待续……",
+  "tbc_message": "ECHO 的旅程还在继续。更多章节即将到来。"
 }
