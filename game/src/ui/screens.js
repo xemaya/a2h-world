@@ -17,6 +17,14 @@ const h = (tag, attrs = {}, ...children) => {
 
 // ─── reusable scene pieces ───
 
+function resolveSpritePath(characters, characterKey, emotion) {
+  const char = characters?.[characterKey];
+  if (!char) return `assets/echo/echo_${emotion || 'blank'}.png`;
+  const fallbackEmotion = char.emotions?.[0] || 'blank';
+  const actualEmotion = emotion || fallbackEmotion;
+  return `${char.sprite_dir}/${char.sprite_pattern.replace('{emotion}', actualEmotion)}`;
+}
+
 function renderSceneBg(src, tintClass = null) {
   return [
     h('div', { class: 'scene-bg' }, h('img', { src, alt: '' })),
@@ -25,11 +33,14 @@ function renderSceneBg(src, tintClass = null) {
   ];
 }
 
-function renderCharacters(activeSpeaker, echoEmotion, partnerSprite, partnerName) {
+function renderCharacters(activeSpeaker, echoEmotion, partnerSprite, partnerName, characters) {
   // activeSpeaker: 'partner' | 'echo' | 'narrator' | null
   // narrator → both dimmed equally; partner/echo → that one active, other dimmed
   const echoActive = activeSpeaker === 'echo';
   const partnerActive = activeSpeaker === 'partner';
+  const echoSrc = characters
+    ? resolveSpritePath(characters, 'echo', echoEmotion || 'blank')
+    : `assets/echo/echo_${echoEmotion || 'blank'}.png`;
   return h('div', { class: 'characters' },
     h('img', {
       class: `sprite partner${partnerActive ? ' active' : ''}`,
@@ -38,7 +49,7 @@ function renderCharacters(activeSpeaker, echoEmotion, partnerSprite, partnerName
     }),
     h('img', {
       class: `sprite echo${echoActive ? ' active' : ''}`,
-      src: `assets/echo/echo_${echoEmotion || 'blank'}.png`,
+      src: echoSrc,
       alt: 'ECHO'
     })
   );
@@ -67,38 +78,38 @@ function paintStageColdOpen(stage, screen) {
   );
 }
 
-function paintStageVn(stage, screen, line) {
+function paintStageVn(stage, screen, line, characters) {
   const echoEmotion = line.speaker === 'echo' ? (line.emotion || 'blank') : 'blank';
   stage.replaceChildren(
     ...renderSceneBg(screen.bg).filter(Boolean),
-    renderCharacters(line.speaker, echoEmotion, screen.partner.sprite, screen.partner.name)
+    renderCharacters(line.speaker, echoEmotion, screen.partner.sprite, screen.partner.name, characters)
   );
 }
 
-function paintStageChoicePrompt(stage, screen) {
+function paintStageChoicePrompt(stage, screen, characters) {
   // Choice screen: show prompt floating above; both sprites are neutral presence.
   // We treat it as "echo thinking" so echo is active and shows 'concern' emotion.
   stage.replaceChildren(
     ...renderSceneBg(screen.bg).filter(Boolean),
-    renderCharacters('echo', 'concern', 'assets/partners/kai.png', 'KAI'),
+    renderCharacters('echo', 'concern', 'assets/partners/kai.png', 'KAI', characters),
     h('div', { class: 'choice-prompt' }, screen.prompt)
   );
 }
 
-function paintStageChoiceReaction(stage, screen, chosen) {
+function paintStageChoiceReaction(stage, screen, chosen, characters) {
   // Reaction view: speaker from reaction is active; echo's emotion after.
   const reaction = chosen.reaction;
   stage.replaceChildren(
     ...renderSceneBg(screen.bg).filter(Boolean),
-    renderCharacters(reaction.speaker, chosen.echo_emotion_after, 'assets/partners/kai.png', 'KAI')
+    renderCharacters(reaction.speaker, chosen.echo_emotion_after, 'assets/partners/kai.png', 'KAI', characters)
   );
 }
 
-function paintStageOutro(stage, screen, learnedLabel, epId) {
+function paintStageOutro(stage, screen, learnedLabel, epId, characters) {
   // Outro: market_hall bg + purple tint + ECHO happy + KAI neutral + giant learned word overlay
   stage.replaceChildren(
     ...renderSceneBg(screen.image, 'scene-tint-purple').filter(Boolean),
-    renderCharacters(null, 'happy', 'assets/partners/kai.png', 'KAI'),
+    renderCharacters(null, 'happy', 'assets/partners/kai.png', 'KAI', characters),
     h('div', { class: 'outro-banner' },
       h('div', { class: 'label' }, learnedLabel),
       h('div', { class: 'word' }, screen.learned_feeling_display),
@@ -134,7 +145,7 @@ function renderChoiceOptions(panel, options, onChoose) {
 // ─── unified entry point (called per paint) ───
 
 export function renderScreen(refs, screen, lineIdx, state, i18n, onChoose) {
-  const { stage, dialoguePanel, dialogueContent, choiceOptions } = refs;
+  const { stage, dialoguePanel, dialogueContent, choiceOptions, characters } = refs;
   const footer = dialoguePanel.closest('.dialogue-footer');
 
   // Reset panel mode classes
@@ -162,7 +173,7 @@ export function renderScreen(refs, screen, lineIdx, state, i18n, onChoose) {
 
   if (screen.type === 'vn') {
     const line = screen.dialogue[lineIdx];
-    paintStageVn(stage, screen, line);
+    paintStageVn(stage, screen, line, characters);
     const speakerLabel = line.speaker === 'echo'
       ? 'ECHO'
       : (line.speaker === 'narrator' ? '——' : screen.partner.name);
@@ -172,14 +183,14 @@ export function renderScreen(refs, screen, lineIdx, state, i18n, onChoose) {
 
   if (screen.type === 'choice') {
     if (lineIdx === 0) {
-      paintStageChoicePrompt(stage, screen);
+      paintStageChoicePrompt(stage, screen, characters);
       dialoguePanel.classList.add('choice-mode');
       renderChoiceOptions(choiceOptions, screen.options, onChoose);
       renderDialogueLine(dialogueContent, 'narrator', i18n.t('choose_hint'), '——');
     } else {
       const chosen = screen.options.find(o => o.id === state.chosenOption);
       if (!chosen) return;
-      paintStageChoiceReaction(stage, screen, chosen);
+      paintStageChoiceReaction(stage, screen, chosen, characters);
       const reaction = chosen.reaction;
       const speakerLabel = reaction.speaker === 'echo' ? 'ECHO' : 'KAI';
       renderDialogueLine(dialogueContent, reaction.speaker, reaction.text, speakerLabel);
@@ -188,7 +199,7 @@ export function renderScreen(refs, screen, lineIdx, state, i18n, onChoose) {
   }
 
   if (screen.type === 'outro') {
-    paintStageOutro(stage, screen, i18n.t('learned_label'), state.episodeId);
+    paintStageOutro(stage, screen, i18n.t('learned_label'), state.episodeId, characters);
     renderDialogueLine(dialogueContent, 'narrator', i18n.t('next_episode') || '——点击重新开始 ▸', '——');
     return;
   }

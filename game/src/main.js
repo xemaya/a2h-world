@@ -33,6 +33,8 @@ async function boot() {
     loadJson('./data/ui.en.json')
   ]);
 
+  const characters = await loadJson('./data/characters.json');
+
   const uiResources = { zh: uiZh, en: uiEn };
   const scripts = { zh: scriptZh, en: scriptEn };
 
@@ -56,7 +58,8 @@ async function boot() {
     stage: document.querySelector('#stage'),
     dialoguePanel: document.querySelector('.dialogue-panel'),
     dialogueContent: document.querySelector('[data-slot="dialogue-content"]'),
-    choiceOptions: document.querySelector('[data-slot="choice-options"]')
+    choiceOptions: document.querySelector('[data-slot="choice-options"]'),
+    characters
   };
   const nextBtn = document.querySelector('[data-slot="next"]');
   const langBtn = document.querySelector('[data-slot="lang-toggle"]');
