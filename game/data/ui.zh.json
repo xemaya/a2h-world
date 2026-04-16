@@ -5,13 +5,14 @@
   "continue": "继续",
   "next": "继续 ▸",
   "next_episode": "下一集 ▸",
-  "learning_progress": "学习进度",
+  "evolution_progress": "进化进度",
   "episode_label": "EP.",
   "learned_label": "ECHO 学到",
   "task_card_title": "A2H Market · 任务",
   "lang_toggle": "EN",
   "restart": "重新开始",
+  "exit_to_menu": "退出到主菜单",
   "you_chose": "你选择了",
-  "final_score": "最终学习进度",
+  "final_score": "最终进化进度",
   "cold_open_hint": "——点击继续 ▸ 进入 2026 年。"
 }

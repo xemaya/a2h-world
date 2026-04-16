@@ -195,7 +195,8 @@ body {
   display: flex; align-items: flex-end; gap: 14px;
   box-shadow: 0 0 30px rgba(0,255,204,0.08), 0 4px 20px rgba(0,0,0,0.5);
   backdrop-filter: blur(12px);
-  min-height: 80px;
+  min-height: 120px;
+  height: 120px;
   transition: border-color 220ms;
 }
 .dialogue-panel:focus-within { border-color: var(--cyan); }

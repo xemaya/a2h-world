@@ -5,13 +5,14 @@
   "continue": "Continue",
   "next": "Next ▸",
   "next_episode": "Next episode ▸",
-  "learning_progress": "Learning progress",
+  "evolution_progress": "Evolution Progress",
   "episode_label": "EP.",
   "learned_label": "ECHO learned",
   "task_card_title": "A2H Market · Task",
   "lang_toggle": "中",
   "restart": "Restart",
+  "exit_to_menu": "Exit to Menu",
   "you_chose": "You chose",
-  "final_score": "Final learning progress",
+  "final_score": "Final Evolution Progress",
   "cold_open_hint": "—— Click Next ▸ to enter 2026."
 }

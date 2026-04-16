@@ -127,7 +127,7 @@ async function boot() {
       paint();
     });
 
-    progressLabel.textContent = i18n.t('learning_progress');
+    progressLabel.textContent = i18n.t('evolution_progress');
     progressValue.textContent = `${state.learningScore}/100`;
     progressFill.style.width = `${state.learningScore}%`;
     epLabel.textContent = `EP.${episode.id.slice(2)}`;
@@ -160,11 +160,9 @@ async function boot() {
   });
 
   exitBtn.addEventListener('click', () => {
-    if (confirm(i18n.t('exit_to_menu') + '?')) {
-      state = reduce(state, { type: 'EXIT_TO_MENU' });
-      saveProgress(state);
-      paint();
-    }
+    state = reduce(state, { type: 'EXIT_TO_MENU' });
+    saveProgress(state);
+    paint();
   });
 
   paint();
