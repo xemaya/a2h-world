@@ -94,12 +94,21 @@ describe('state machine', () => {
     expect(after.lang).toBe('en');
   });
 
-  it('NEXT on outro restarts the episode (single-episode demo)', () => {
+  it('NEXT on outro returns to menu when last episode', () => {
     let s = initialState({ 'EP01': ep01 }, 'EP01');
-    s = { ...s, screenIdx: 4, learningScore: 8, choices: { EP01: 'B' } };
+    s = { ...s, gameMode: 'playing', screenIdx: 4, learningScore: 8, choices: { EP01: 'B' } };
     const after = reduce(s, { type: 'NEXT' });
+    expect(after.gameMode).toBe('menu');
+    expect(after.completedEpisodes).toContain('EP01');
+  });
+
+  it('NEXT on outro advances to next episode', () => {
+    const ep02 = { ...ep01, id: 'EP02' };
+    let s = initialState({ 'EP01': ep01, 'EP02': ep02 }, 'EP01');
+    s = { ...s, gameMode: 'playing', screenIdx: 4, learningScore: 8, choices: { EP01: 'B' } };
+    const after = reduce(s, { type: 'NEXT' });
+    expect(after.episodeId).toBe('EP02');
     expect(after.screenIdx).toBe(0);
-    expect(after.learningScore).toBe(0);
-    expect(after.choices).toEqual({});
+    expect(after.completedEpisodes).toContain('EP01');
   });
 });

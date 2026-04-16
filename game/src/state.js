@@ -67,9 +67,27 @@ export function reduce(s, action) {
         return s;
       }
       if (screen.type === 'outro') {
-        // For now EP.01 is the only episode; NEXT on outro restarts the episode.
-        // Plan 4 will extend this to advance to next episode or show end-of-season screen.
-        return restartEpisode(s);
+        // Advance to next episode if available, otherwise return to menu
+        const epIds = Object.keys(s.script).sort();
+        const currentIdx = epIds.indexOf(s.episodeId);
+        const completed = s.completedEpisodes.includes(s.episodeId)
+          ? s.completedEpisodes
+          : [...s.completedEpisodes, s.episodeId];
+
+        if (currentIdx < epIds.length - 1) {
+          const nextId = epIds[currentIdx + 1];
+          return {
+            ...s,
+            episodeId: nextId,
+            screenIdx: 0,
+            lineIdx: 0,
+            choices: {},
+            chosenOption: undefined,
+            completedEpisodes: completed
+          };
+        }
+        // Last episode — return to menu
+        return { ...s, gameMode: 'menu', completedEpisodes: completed };
       }
       return s;
     }
