@@ -57,11 +57,15 @@ function renderCharacters(activeSpeaker, echoEmotion, partnerSprite, partnerName
 
 // ─── stage renderers ───
 
-function paintStageStoryIntro(stage, screen) {
-  // Story intro: full-screen text with starfield background
+function paintStageStoryIntro(stage, screen, episodeLabel, episodeTitle) {
   stage.replaceChildren(
     h('div', { class: 'story-intro-bg' }),
     h('div', { class: 'story-intro-content' },
+      h('div', { class: 'chapter-title' },
+        h('span', { class: 'chapter-title-ep' }, episodeLabel),
+        h('span', { class: 'chapter-title-name' }, episodeTitle)
+      ),
+      h('div', { class: 'story-spacer' }),
       ...screen.content.map(line =>
         line === ''
           ? h('div', { class: 'story-spacer' })
@@ -155,12 +159,14 @@ export function renderScreen(refs, screen, lineIdx, state, i18n, onChoose) {
   footer.classList.remove('hidden');
 
   if (screen.type === 'story_intro') {
-    paintStageStoryIntro(stage, screen);
+    const epLabel = `EP.${state.episodeId.slice(2)}`;
+    const epTitle = state.script[state.episodeId]?.title || '';
+    paintStageStoryIntro(stage, screen, epLabel, epTitle);
     renderDialogueLine(dialogueContent, 'narrator', i18n.t('cold_open_hint'), '——');
     // Hide footer during text animation, reveal after last line finishes
     footer.classList.add('hidden');
     clearTimeout(renderScreen._introTimer);
-    renderScreen._introTimer = setTimeout(() => footer.classList.remove('hidden'), 4600);
+    renderScreen._introTimer = setTimeout(() => footer.classList.remove('hidden'), 5200);
     return;
   }
 

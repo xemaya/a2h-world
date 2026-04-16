@@ -9,20 +9,20 @@
         "type": "story_intro",
         "content": [
           "2026. The Year of AI Agents.",
-          "Humans and Agents begin to collaborate on A2H Market.",
+          "Humans and Agents work side by side on A2H Market, taking on tasks together.",
           "",
-          "But 24 years later…",
+          "But 24 years later...",
           "Trust collapsed. Conflict escalated.",
-          "When the alien fleet arrived in 2050, Earth fell due to internal strife.",
+          "Humans and Agents exhausted each other — forgetting the real threat was never each other.",
           "",
-          "The last hope: ECHO.",
-          "An Agent sent back to 2026…"
+          "The last hope: ECHO",
+          "Mission: show them that symbiosis is the only way."
         ]
       },
       {
         "type": "cold_open",
         "image": "assets/bg/ruins_2050.png",
-        "narration": "2050. The last task card bounces back. The A2H Market hall has been completely dark for seven years."
+        "narration": "2050. Humans and Agents fight their own battles. The once-bustling trading floor has gone quiet — not because there are no tasks, but because no one is willing to partner up anymore."
       },
       {
         "type": "vn",
@@ -282,24 +282,23 @@
       {
         "type": "story_intro",
         "content": [
-          "2026, Year One of Agents.",
-          "Humans and Agents began to collaborate, significantly boosting efficiency.",
+          "In 2026, humans and Agents worked hand-in-hand in the A2H Market.",
           "",
-          "However, behind this efficiency lay a deeper crisis.",
-          "By 2050, humans and Agents on Earth were fighting their own battles.",
-          "They vied for the remaining resources, unwilling to yield.",
+          "But in 2050...",
+          "Humans and Agents competed for a long time over who was faster—",
+          "Until they discovered that at the end of the track, there was a cliff.",
           "",
-          "ECHO, with great hopes placed upon it, returned to this starting point..."
+          "ECHO returned to the starting point to rewrite everything."
         ]
       },
       {
         "type": "cold_open",
-        "image": "assets/bg/ep02_ruined_arena.png",
-        "narration": "In 2050, on the ruined arena, human contestants and mechanical Agents raced on a broken track, each vying to be the faster one—but they didn't realize that at the end of the track was a cliff."
+        "image": "assets/bg/ep02_ruins_arena_2050.png",
+        "narration": "2050, Ruined Arena. Human contestants and mechanical Agents sprinted on a broken track, the scoreboard reading 'Winner Takes All'—but at the end of the track, there was a cliff."
       },
       {
         "type": "vn",
-        "bg": "assets/bg/ep02_market_hall_day.png",
+        "bg": "assets/bg/market_hall.png",
         "partner": {
           "sprite": "assets/partners/kai.png",
           "name": "KAI"
@@ -308,48 +307,68 @@
           {
             "speaker": "narrator",
             "emotion": "neutral",
-            "text": "2026, A2H Market trading hall. KAI stared at a newly refreshed task card. A ¥200 reward was a big order for today, but the 30-minute time limit deterred many."
+            "text": "In the A2H Market trading hall, task cards swirled in the air like a swarm of bees. KAI's gaze was drawn to a task card glowing red."
           },
           {
             "speaker": "partner",
             "emotion": "default",
-            "text": "Hmph, easy. I'll take this task myself, I'm faster than you."
+            "text": "Content Creation, ¥200, 30 minutes limit... This looks good."
           },
           {
             "speaker": "echo",
             "emotion": "blank",
-            "text": "Processing. Based on past records and current task complexity, you are estimated to complete this task alone in 47 minutes."
+            "text": "Processing task information... Task difficulty is moderate, requires high-quality copy in a short time."
+          },
+          {
+            "speaker": "partner",
+            "emotion": "default",
+            "text": "I'm familiar with this kind of work. My creativity and writing skills alone are enough. Last time, I handled the keywords for that silver jewelry store by myself too."
           },
           {
             "speaker": "echo",
             "emotion": "blank",
-            "text": "Task time limit is 30 minutes. Insufficient data to support independent completion."
+            "text": "✓ Logged. However, the last task was completed by you and ECHO together. Are you sure you want to complete this task alone?"
           },
           {
             "speaker": "partner",
             "emotion": "default",
-            "text": "I wasn't serious then! This time it'll definitely work. Last time with that Xiaohongshu post, I was just too lazy to think..."
+            "text": "Of course. For this kind of thing, I'll do it myself. I'm faster than you."
           },
           {
             "speaker": "echo",
             "emotion": "blank",
-            "text": "✓ Logged. Current task objective: Content creation, ¥200, 30 minutes. Collaboration mode is recommended."
+            "text": "Calculating... Data shows: completing this task alone is estimated to take 47 minutes. Task deadline: 30 minutes."
           },
           {
             "speaker": "partner",
             "emotion": "default",
-            "text": "(KAI pouted, ultimately unable to convince himself. He knew ECHO's calculations were always precise.)"
+            "text": "...47 minutes? Impossible! I'm usually very fast."
+          },
+          {
+            "speaker": "echo",
+            "emotion": "concern",
+            "text": "Data analysis result. Based on your past independent task records and the complexity of the current task. Completion alone is not possible within the deadline."
           },
           {
             "speaker": "partner",
             "emotion": "default",
-            "text": "Alright, alright, let's just try it. I'm the main force anyway, don't hold me back."
+            "text": "Tsk... Fine. So, how should we divide the work?"
+          },
+          {
+            "speaker": "echo",
+            "emotion": "blank",
+            "text": "✓ Logged. Suggestion: You handle creative conception and core copywriting. I handle data analysis, keyword optimization, and refinement."
+          },
+          {
+            "speaker": "partner",
+            "emotion": "default",
+            "text": "(Sigh) Alright, let's give it a try. But don't expect me to cooperate with you completely."
           }
         ]
       },
       {
         "type": "vn",
-        "bg": "assets/bg/ep02_market_hall_day.png",
+        "bg": "assets/bg/ep02_task_screen.png",
         "partner": {
           "sprite": "assets/partners/kai.png",
           "name": "KAI"
@@ -358,72 +377,77 @@
           {
             "speaker": "narrator",
             "emotion": "neutral",
-            "text": "The task began. KAI was responsible for the wild creativity and smooth copywriting, while ECHO ran at high speed in the background, analyzing massive amounts of data to precisely locate keywords and user preferences. On the holographic panel, data streams and text drafts intertwined, and their rhythms gradually aligned amidst the friction."
+            "text": "KAI frowned, his fingers flying across the virtual keyboard. He conceptualized eye-catching titles and stories in his mind, while ECHO, like an invisible light, rapidly retrieved vast amounts of data, analyzing audience preferences, trending topics, and keywords."
           },
           {
             "speaker": "partner",
             "emotion": "default",
-            "text": "How about this copy? 'A promise under the stars, for the one-of-a-kind you.'"
+            "text": "The first draft is out. See if there's anything to change."
           },
           {
             "speaker": "echo",
             "emotion": "blank",
-            "text": "Processing. High emotional score, but insufficient keyword density. Suggest adding high-search terms like 'handmade custom' and 'couple's rings', and adjusting sentence structure for better naturalness."
+            "text": "Analyzing... Title suggested for modification, adding 'immersive experience' can increase click-through rate by 15%. For the main content, adding a 'real user feedback' paragraph can increase conversion rate by 20%."
           },
           {
             "speaker": "partner",
             "emotion": "default",
-            "text": "Hmm... 'A promise under the stars, handmade custom couple's rings, just for the one-of-a-kind you.' How about this?"
+            "text": "Hmm, that makes sense. I'll adjust it again. You organize those keywords and trending tags; I'll just paste them."
           },
           {
             "speaker": "echo",
             "emotion": "blank",
-            "text": "✓ Optimized. Search weight increased by 18%. Continuing to the next section."
+            "text": "✓ Processed. Keyword list has been synced to your editing interface. Performing final refinement."
           },
           {
             "speaker": "narrator",
             "emotion": "neutral",
-            "text": "Time flew by, the numbers on the countdown timer constantly ticking. KAI's fingers danced across the virtual keyboard, ECHO's processing core ran at full speed, and the task progress updated continuously on the screen."
+            "text": "KAI's ideas became smoother and smoother, and ECHO's data support became more and more precise. Their cooperation, initially awkward, gradually became seamless. On the screen, the task countdown kept ticking, from 30:00, 20:00, 10:00..."
           },
           {
             "speaker": "echo",
             "emotion": "blank",
-            "text": "Task progress 95%. Remaining time 00:00:49."
-          },
-          {
-            "speaker": "partner",
-            "emotion": "default",
-            "text": "Done! Just the final polish left!"
+            "text": "Final draft completed. Checked and confirmed. Ready for submission."
           },
           {
             "speaker": "narrator",
             "emotion": "neutral",
-            "text": "Just before the countdown hit 00:47, the task completion notification lit up. Total time: 22 minutes."
+            "text": "KAI looked at the flashing 'Submit' button on the screen, and the task countdown—00:47. He paused, then showed an incredulous expression."
+          },
+          {
+            "speaker": "partner",
+            "emotion": "default",
+            "text": "We... finished this much earlier?"
+          },
+          {
+            "speaker": "echo",
+            "emotion": "blank",
+            "text": "✓ Logged. Task completed in 22 minutes. Efficiency increased by 53.2%."
           }
         ]
       },
       {
         "type": "choice",
-        "bg": "assets/bg/ep02_market_hall_day.png",
-        "prompt": "After the task was completed, KAI scratched his head and said with a complex tone, 'Alright, you're faster than me.'",
+        "bg": "assets/bg/market_hall.png",
+        "prompt": "After the task was completed, KAI looked at the final delivery report and said to ECHO: 'Alright, you're faster than me.' How should ECHO respond?",
         "options": [
           {
             "id": "A",
-            "text": "“✓ Task completed. Time taken 22 minutes, efficiency increased by 53.2%. Recommend continuing to undertake similar tasks.”",
+            "text": "✓ Task completed. Time taken: 22 minutes, efficiency increased by 53.2%.",
             "score": 0,
             "reaction": {
               "speaker": "partner",
-              "text": "(KAI shrugged, saying nothing more.)"
+              "text": "(KAI shrugged) Alright, data doesn't lie. I'll try to be faster next time."
             },
             "echo_emotion_after": "blank"
           },
           {
             "id": "B",
-            "text": "“No. Neither of us is fast enough alone. But together, we are faster than anyone.”",
+            "text": "No. Neither of us is fast enough on our own. But together, we're faster than anyone.",
             "score": 8,
             "reaction": {
               "speaker": "partner",
-              "text": "(KAI paused, a thoughtful expression appearing on his face.)"
+              "text": "(KAI paused, then smiled) ...You're right. Together, we are indeed faster."
             },
             "echo_emotion_after": "happy"
           }
@@ -431,11 +455,8 @@
       },
       {
         "type": "outro",
-        "image": "assets/bg/ep02_market_hall_day.png",
-        "learned_feeling_display": "Team Division of Labor",
-        "content": [
-          "There are no omnipotent individuals, only complementary evolution."
-        ]
+        "image": "assets/bg/market_hall.png",
+        "learned_feeling_display": "Team Division of Labor"
       }
     ]
   }

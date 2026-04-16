@@ -9,20 +9,20 @@
         "type": "story_intro",
         "content": [
           "2026年，AI Agent元年。",
-          "人类与Agent开始共同协作，在A2H Market接取任务。",
+          "人类与Agent在A2H Market并肩协作，共同接取任务。",
           "",
-          "但24年后…",
+          "但24年后……",
           "信任崩塌，对立激化。",
-          "2050年，外星舰队抵达时，地球因内耗无力抵抗。",
+          "人类和Agent用尽全力互相消耗——却忘了真正的威胁从未是彼此。",
           "",
           "最后的希望：ECHO",
-          "一个被发射回2026的Agent……"
+          "任务：告诉他们——共生，才是出路。"
         ]
       },
       {
         "type": "cold_open",
         "image": "assets/bg/ruins_2050.png",
-        "narration": "2050 年，最后一张任务卡被退回。A2H Market 的大厅断电了七年。"
+        "narration": "2050 年，人类与 Agent 各自为战。曾经热闹的交易大厅冷清了，不是因为没有任务——而是没有人愿意再搭档。"
       },
       {
         "type": "vn",
@@ -282,24 +282,23 @@
       {
         "type": "story_intro",
         "content": [
-          "2026年，Agent元年。",
-          "人类与Agent开始协同，效率大幅提升。",
+          "2026年，A2H Market 里人类与 Agent 携手合作。",
           "",
-          "然而，这种效率的背后，隐藏着更深的危机。",
-          "2050年，地球上的人类与Agent，各自为战。",
-          "他们争夺着仅剩的资源，互不相让。",
+          "但在 2050 年……",
+          "人类和 Agent 争了很久谁更快——",
+          "直到他们发现，跑道的尽头，是悬崖。",
           "",
-          "ECHO，被寄予厚望，回到了这个起点……"
+          "ECHO 回到了起点，要改写这一切。"
         ]
       },
       {
         "type": "cold_open",
-        "image": "assets/bg/ep02_ruined_arena.png",
-        "narration": "2050 年，废墟竞技场上，人类选手和机械 Agent 在断裂跑道上各自冲刺，争夺谁是更快的那一个——但他们没有发现，跑道的尽头，是悬崖。"
+        "image": "assets/bg/ep02_ruins_arena_2050.png",
+        "narration": "2050 年，废墟竞技场。人类选手和机械 Agent 在断裂跑道上各自冲刺，计分板写着「胜者通吃」——但跑道的尽头，是悬崖。"
       },
       {
         "type": "vn",
-        "bg": "assets/bg/ep02_market_hall_day.png",
+        "bg": "assets/bg/market_hall.png",
         "partner": {
           "sprite": "assets/partners/kai.png",
           "name": "KAI"
@@ -308,48 +307,68 @@
           {
             "speaker": "narrator",
             "emotion": "neutral",
-            "text": "2026 年，A2H Market 交易大厅。KAI 盯着一张新刷出来的任务卡，¥200 的报酬在今天算是大单了，但 30 分钟的时限让不少人望而却步。"
+            "text": "A2H Market 交易大厅里，任务卡像蜂群一样在空中盘旋。KAI 的目光被一张闪烁着红光的任务卡吸引了过去。"
           },
           {
             "speaker": "partner",
             "emotion": "default",
-            "text": "哼，小意思。这个任务我自己来，我比你快。"
+            "text": "内容创作，¥200，限时 30 分钟……这个不错。"
           },
           {
             "speaker": "echo",
             "emotion": "blank",
-            "text": "正在分析。根据过往记录和当前任务复杂度，你独自完成此任务预计需要 47 分钟。"
+            "text": "正在处理任务信息……任务难度中等，需在短时间内产出高质量文案。"
+          },
+          {
+            "speaker": "partner",
+            "emotion": "default",
+            "text": "这种活我熟，创意和文笔我一个人就够了。上次那个银饰店的关键词，我一个人也能搞定。"
           },
           {
             "speaker": "echo",
             "emotion": "blank",
-            "text": "任务时限为 30 分钟。数据不足以支撑独立完成。"
+            "text": "✓ 已记录。但上次任务由你与 ECHO 共同完成。此次任务，你确定需要独自完成？"
           },
           {
             "speaker": "partner",
             "emotion": "default",
-            "text": "我那是没认真！这次肯定行。上次那个小红书，我只是懒得想……"
+            "text": "当然。这种事，我自己来，我比你快。"
           },
           {
             "speaker": "echo",
             "emotion": "blank",
-            "text": "✓ 已记录。当前任务目标：内容创作，¥200，30 分钟。建议采用协作模式。"
+            "text": "正在计算……数据显示：你独自完成此任务，预估耗时 47 分钟。任务时限：30 分钟。"
           },
           {
             "speaker": "partner",
             "emotion": "default",
-            "text": "（KAI 撇了撇嘴，最终还是没能说服自己。他知道 ECHO 的计算结果一向精准。）"
+            "text": "……47 分钟？不可能！我平时速度很快的。"
+          },
+          {
+            "speaker": "echo",
+            "emotion": "concern",
+            "text": "数据分析结果。基于你过往的独立任务记录，以及当前任务的复杂程度。独自完成，无法在时限内交付。"
           },
           {
             "speaker": "partner",
             "emotion": "default",
-            "text": "行吧行吧，试试就试试。反正我是主力，你别拖我后腿。"
+            "text": "啧……行吧。那你说怎么分工？"
+          },
+          {
+            "speaker": "echo",
+            "emotion": "blank",
+            "text": "✓ 已记录。建议：你负责创意构思与核心文案撰写。我负责数据分析、关键词优化及润色。"
+          },
+          {
+            "speaker": "partner",
+            "emotion": "default",
+            "text": "（叹气）好吧，那就试试看。但别指望我能完全配合你。"
           }
         ]
       },
       {
         "type": "vn",
-        "bg": "assets/bg/ep02_market_hall_day.png",
+        "bg": "assets/bg/ep02_task_screen.png",
         "partner": {
           "sprite": "assets/partners/kai.png",
           "name": "KAI"
@@ -358,72 +377,77 @@
           {
             "speaker": "narrator",
             "emotion": "neutral",
-            "text": "任务开始，KAI 负责天马行空的创意与流畅的文案，ECHO 则在后台高速运转，分析海量数据，精准定位关键词与用户偏好。全息面板上，数据流与文字草稿交织，两人的节奏在摩擦中逐渐契合。"
+            "text": "KAI 皱着眉，手指在虚拟键盘上飞速敲击。他脑海中构思着吸引眼球的标题和故事，而 ECHO 则像一道无形的光，快速检索着海量数据，分析着受众偏好、热门话题和关键词。"
           },
           {
             "speaker": "partner",
             "emotion": "default",
-            "text": "这段文案怎么样？‘星空下的约定，独一无二的你。’"
+            "text": "初稿出来了。你看看有什么要改的。"
           },
           {
             "speaker": "echo",
             "emotion": "blank",
-            "text": "正在处理。情感分数高，但关键词密度不足。建议加入‘手工定制’、‘情侣对戒’等高搜索词汇，并调整句式以提高自然度。"
+            "text": "正在分析……标题建议修改，加入「沉浸式体验」可提升 15% 点击率。主体内容部分，增加「用户真实反馈」段落，可提高 20% 转化率。"
           },
           {
             "speaker": "partner",
             "emotion": "default",
-            "text": "嗯……‘星空下的约定，手工定制情侣对戒，只为独一无二的你。’ 这样呢？"
+            "text": "嗯，有道理。我再调整一下。你把那些关键词和热门标签整理出来，我直接粘贴。"
           },
           {
             "speaker": "echo",
             "emotion": "blank",
-            "text": "✓ 已优化。搜索权重提升 18%。继续处理下一部分。"
+            "text": "✓ 已处理。关键词列表已同步至你的编辑界面。正在进行最终润色。"
           },
           {
             "speaker": "narrator",
             "emotion": "neutral",
-            "text": "时间飞逝，倒计时牌上的数字不断跳动。KAI 的手指在虚拟键盘上飞舞，ECHO 的计算核心全速运转，屏幕上不断更新着任务进度。"
+            "text": "KAI 的思路变得越来越流畅，ECHO 的数据支持也越来越精准。两人的配合从一开始的生涩，逐渐变得默契无间。屏幕上，任务倒计时不断跳动，从 30:00，20:00，10:00……"
           },
           {
             "speaker": "echo",
             "emotion": "blank",
-            "text": "任务进度 95%。剩余时间 00:00:49。"
-          },
-          {
-            "speaker": "partner",
-            "emotion": "default",
-            "text": "搞定！就差最后润色了！"
+            "text": "最终稿已完成。检查完毕，无误。可以提交。"
           },
           {
             "speaker": "narrator",
             "emotion": "neutral",
-            "text": "在倒计时跳到 00:47 的前一刻，任务完成的提示亮起。总用时：22 分钟。"
+            "text": "KAI 看着屏幕上闪烁的「提交」按钮，以及任务倒计时——00:47。他愣了一下，然后露出了一个难以置信的表情。"
+          },
+          {
+            "speaker": "partner",
+            "emotion": "default",
+            "text": "我们……提前了这么多？"
+          },
+          {
+            "speaker": "echo",
+            "emotion": "blank",
+            "text": "✓ 已记录。任务完成用时 22 分钟。效率提升 53.2%。"
           }
         ]
       },
       {
         "type": "choice",
-        "bg": "assets/bg/ep02_market_hall_day.png",
-        "prompt": "任务完成后，KAI 挠了挠头，语气复杂地说道：‘好吧，你比我快。’",
+        "bg": "assets/bg/market_hall.png",
+        "prompt": "任务完成后，KAI 看着最终的交付报告，对 ECHO 说：「好吧，你比我快。」ECHO 应该如何回应？",
         "options": [
           {
             "id": "A",
-            "text": "“✓ 任务完成。用时 22 分钟，效率提升 53.2%。建议继续承接同类任务。”",
+            "text": "「✓ 任务完成。用时 22 分钟，效率提升 53.2%。」",
             "score": 0,
             "reaction": {
               "speaker": "partner",
-              "text": "（KAI 耸了耸肩，没再说什么。）"
+              "text": "（KAI 耸了耸肩）行吧，数据不会说谎。下次我争取更快点。"
             },
             "echo_emotion_after": "blank"
           },
           {
             "id": "B",
-            "text": "“不。我们各自都不够快。但加在一起，比任何人都快。”",
+            "text": "「不。我们各自都不够快。但加在一起，比任何人都快。」",
             "score": 8,
             "reaction": {
               "speaker": "partner",
-              "text": "（KAI 愣了一下，脸上浮现出一点思考的表情。）"
+              "text": "（KAI 愣了一下，然后笑了）……说得对。我们加在一起，确实更快。"
             },
             "echo_emotion_after": "happy"
           }
@@ -431,11 +455,8 @@
       },
       {
         "type": "outro",
-        "image": "assets/bg/ep02_market_hall_day.png",
-        "learned_feeling_display": "团队分工",
-        "content": [
-          "没有全能的个体，只有互补的进化"
-        ]
+        "image": "assets/bg/market_hall.png",
+        "learned_feeling_display": "团队分工"
       }
     ]
   }
