@@ -10,3 +10,12 @@ build/cache/
 
 .vscode/
 .idea/
+
+# Debug screenshots & temp files
+*.png
+!assets/**/*.png
+!comics/assets/**/*.png
+!game/assets/**/*.png
+
+# Playwright MCP debug logs
+.playwright-mcp/
