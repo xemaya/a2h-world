@@ -58,6 +58,18 @@ function renderCharacters(activeSpeaker, echoEmotion, partnerSprite, partnerName
 // ─── stage renderers ───
 
 function paintStageStoryIntro(stage, screen, episodeLabel, episodeTitle) {
+  // Build lines with staggered animation delays
+  let delayMs = 800; // first line starts after chapter title fades in
+  const lines = screen.content.map(line => {
+    if (line === '') {
+      delayMs += 600; // pause between groups
+      return h('div', { class: 'story-spacer' });
+    }
+    const el = h('p', { class: 'story-line', style: `animation-delay: ${delayMs}ms` }, line);
+    delayMs += 200;
+    return el;
+  });
+
   stage.replaceChildren(
     h('div', { class: 'story-intro-bg' }),
     h('div', { class: 'story-intro-content' },
@@ -66,13 +78,12 @@ function paintStageStoryIntro(stage, screen, episodeLabel, episodeTitle) {
         h('span', { class: 'chapter-title-name' }, episodeTitle)
       ),
       h('div', { class: 'story-spacer' }),
-      ...screen.content.map(line =>
-        line === ''
-          ? h('div', { class: 'story-spacer' })
-          : h('p', { class: 'story-line' }, line)
-      )
+      ...lines
     )
   );
+
+  // Return total animation duration for footer reveal timing
+  paintStageStoryIntro._totalDelay = delayMs + 800;
 }
 
 function paintStageColdOpen(stage, screen) {
@@ -166,7 +177,8 @@ export function renderScreen(refs, screen, lineIdx, state, i18n, onChoose) {
     // Hide footer during text animation, reveal after last line finishes
     footer.classList.add('hidden');
     clearTimeout(renderScreen._introTimer);
-    renderScreen._introTimer = setTimeout(() => footer.classList.remove('hidden'), 5200);
+    const revealDelay = paintStageStoryIntro._totalDelay || 5200;
+    renderScreen._introTimer = setTimeout(() => footer.classList.remove('hidden'), revealDelay);
     return;
   }
 
