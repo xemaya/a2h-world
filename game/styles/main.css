@@ -40,13 +40,13 @@ body {
 .progress-track { width: 180px; height: 4px; background: rgba(255,255,255,0.08); border-radius: 2px; overflow: hidden; }
 .progress-fill { height: 100%; background: linear-gradient(90deg, var(--purple), var(--cyan)); transition: width 400ms ease; width: 0%; box-shadow: 0 0 8px rgba(0,255,204,0.6); }
 .hud-actions { display: flex; gap: 8px; align-items: center; }
-.hud-lang, .hud-restart {
+.hud-lang, .hud-restart, .hud-exit {
   background: transparent; border: 1px solid var(--panel-border); color: var(--ink);
   padding: 4px 10px; font-family: var(--font-mono); font-size: 12px; cursor: pointer;
   border-radius: 4px; transition: all 150ms;
 }
-.hud-restart { padding: 4px 8px; font-size: 14px; }
-.hud-lang:hover, .hud-restart:hover { background: var(--panel); border-color: var(--cyan); color: var(--cyan); }
+.hud-restart, .hud-exit { padding: 4px 8px; font-size: 14px; }
+.hud-lang:hover, .hud-restart:hover, .hud-exit:hover { background: var(--panel); border-color: var(--cyan); color: var(--cyan); }
 
 /* ─── #stage (theater) ─── */
 #stage { position: relative; overflow: hidden; background: var(--bg); }
@@ -257,3 +257,111 @@ body {
 
 /* empty state (choice screen showing options — next button hidden/dimmed) */
 .dialogue-panel.choice-mode .next-btn { display: none; }
+
+/* ─── Menu Overlay ─── */
+#menu-overlay {
+  position: absolute; inset: 0; z-index: 100;
+  background: linear-gradient(135deg, rgba(5,5,15,0.96) 0%, rgba(20,10,30,0.98) 100%);
+  backdrop-filter: blur(12px);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+
+.menu-content {
+  text-align: center; max-width: 600px; padding: 40px;
+}
+
+.menu-logo {
+  font-size: 72px; font-weight: 700; letter-spacing: 0.05em;
+  background: linear-gradient(135deg, var(--cyan) 0%, var(--purple) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 8px;
+  text-shadow: 0 0 40px rgba(137,90,255,0.4);
+}
+
+.menu-subtitle {
+  font-size: 18px; color: var(--muted); margin-bottom: 50px;
+  letter-spacing: 0.08em;
+}
+
+.menu-buttons {
+  display: flex; flex-direction: column; gap: 16px; margin-bottom: 40px;
+}
+
+.menu-btn {
+  background: linear-gradient(135deg, rgba(137,90,255,0.15), rgba(0,255,204,0.08));
+  border: 1px solid var(--panel-border-strong);
+  color: var(--ink); font-size: 18px; font-weight: 500;
+  padding: 16px 36px; border-radius: 8px; cursor: pointer;
+  font-family: var(--font-ui);
+  transition: all 200ms;
+  text-transform: uppercase; letter-spacing: 0.1em;
+}
+
+.menu-btn:hover {
+  background: linear-gradient(135deg, rgba(137,90,255,0.35), rgba(0,255,204,0.18));
+  border-color: var(--cyan);
+  box-shadow: 0 0 24px rgba(0,255,204,0.3);
+  transform: translateY(-2px);
+}
+
+.menu-btn:disabled {
+  opacity: 0.3; cursor: not-allowed;
+}
+
+.menu-footer {
+  font-size: 13px; color: var(--muted); margin-top: 60px;
+  font-family: var(--font-mono);
+}
+
+.menu-footer a {
+  color: var(--cyan); text-decoration: none;
+  transition: all 150ms;
+}
+
+.menu-footer a:hover {
+  text-shadow: 0 0 8px rgba(0,255,204,0.6);
+}
+
+/* Chapter Select specific */
+.chapter-select {
+  display: flex; flex-direction: column; gap: 16px;
+}
+
+.chapter-card {
+  background: linear-gradient(135deg, rgba(137,90,255,0.12), rgba(0,255,204,0.06));
+  border: 1px solid var(--panel-border);
+  border-radius: 8px; padding: 20px 28px;
+  cursor: pointer; transition: all 200ms;
+  text-align: left;
+}
+
+.chapter-card:hover {
+  background: linear-gradient(135deg, rgba(137,90,255,0.25), rgba(0,255,204,0.12));
+  border-color: var(--cyan);
+  box-shadow: 0 0 20px rgba(0,255,204,0.2);
+  transform: translateX(8px);
+}
+
+.chapter-card-title {
+  font-size: 22px; font-weight: 600; color: var(--cyan);
+  margin-bottom: 6px; letter-spacing: 0.05em;
+}
+
+.chapter-card-desc {
+  font-size: 14px; color: var(--muted);
+}
+
+.back-btn {
+  margin-top: 20px;
+  background: transparent; border: 1px solid var(--panel-border);
+  color: var(--ink); padding: 12px 28px; font-size: 15px;
+  border-radius: 6px; cursor: pointer;
+  font-family: var(--font-ui);
+  transition: all 150ms;
+}
+
+.back-btn:hover {
+  background: rgba(137,90,255,0.15);
+  border-color: var(--cyan);
+}

@@ -4,6 +4,7 @@ import { initialState, reduce, currentView } from './state.js';
 import { createI18n } from './i18n.js';
 import { loadProgress, saveProgress, clearProgress } from './storage.js';
 import { renderScreen } from './ui/screens.js';
+import { renderMainMenu, renderChapterSelect } from './ui/menu.js';
 
 async function loadJson(path) {
   const res = await fetch(`${path}?v=${Date.now()}`);
@@ -37,9 +38,19 @@ async function boot() {
 
   const saved = loadProgress();
   let state = initialState(scripts[saved?.lang || 'zh'], 'EP01');
-  if (saved) state = { ...state, ...saved, script: scripts[saved.lang || 'zh'] };
+  if (saved) {
+    state = { ...state, ...saved, script: scripts[saved.lang || 'zh'] };
+    // Backward compatibility: if gameMode doesn't exist, infer it
+    if (!state.gameMode) {
+      state.gameMode = (state.screenIdx > 0 || state.learningScore > 0) ? 'playing' : 'menu';
+    }
+  }
 
   const i18n = createI18n(uiResources, state.lang);
+
+  const hud = document.querySelector('.hud');
+  const menuOverlay = document.querySelector('#menu-overlay');
+  const menuContent = menuOverlay.querySelector('.menu-content');
 
   const refs = {
     stage: document.querySelector('#stage'),
@@ -49,12 +60,63 @@ async function boot() {
   const nextBtn = document.querySelector('[data-slot="next"]');
   const langBtn = document.querySelector('[data-slot="lang-toggle"]');
   const restartBtn = document.querySelector('[data-slot="restart"]');
+  const exitBtn = document.querySelector('[data-slot="exit"]');
   const progressFill = document.querySelector('[data-slot="progress-fill"]');
   const progressValue = document.querySelector('[data-slot="progress-value"]');
   const progressLabel = document.querySelector('[data-slot="progress-label"]');
   const epLabel = document.querySelector('[data-slot="ep-label"]');
 
   function paint() {
+    // Handle menu modes
+    if (state.gameMode === 'menu') {
+      menuOverlay.style.display = 'flex';
+      hud.style.display = 'none';
+      renderMainMenu(menuContent, state, i18n, {
+        onNewGame: () => {
+          state = reduce(state, { type: 'START_NEW_GAME' });
+          saveProgress(state);
+          paint();
+        },
+        onContinue: () => {
+          state = reduce(state, { type: 'CONTINUE_GAME' });
+          paint();
+        },
+        onChapterSelect: () => {
+          state = reduce(state, { type: 'SHOW_CHAPTER_SELECT' });
+          paint();
+        },
+        onToggleLang: () => {
+          const newLang = state.lang === 'zh' ? 'en' : 'zh';
+          i18n.setLang(newLang);
+          state = { ...state, lang: newLang, script: scripts[newLang] };
+          saveProgress(state);
+          paint();
+        }
+      });
+      return;
+    }
+
+    if (state.gameMode === 'chapter-select') {
+      menuOverlay.style.display = 'flex';
+      hud.style.display = 'none';
+      renderChapterSelect(menuContent, state, i18n, {
+        onBack: () => {
+          state = reduce(state, { type: 'EXIT_TO_MENU' });
+          paint();
+        },
+        onSelectEpisode: (episodeId) => {
+          state = reduce(state, { type: 'SELECT_EPISODE', episodeId });
+          saveProgress(state);
+          paint();
+        }
+      });
+      return;
+    }
+
+    // Playing mode
+    menuOverlay.style.display = 'none';
+    hud.style.display = 'flex';
+
     const { episode, screen, lineIdx } = currentView(state);
     const epi = resolveAssetPaths(episode, state.lang);
     const screenWithAssets = epi.screens[state.screenIdx];
@@ -70,8 +132,9 @@ async function boot() {
     progressFill.style.width = `${state.learningScore}%`;
     epLabel.textContent = `EP.${episode.id.slice(2)}`;
     langBtn.textContent = i18n.t('lang_toggle');
+    exitBtn.title = i18n.t('exit_to_menu');
 
-    nextBtn.textContent = screenWithAssets.type === 'outro' ? i18n.t('restart') : i18n.t('next');
+    nextBtn.textContent = screenWithAssets.type === 'outro' ? i18n.t('next_episode') : i18n.t('next');
     nextBtn.disabled = (screenWithAssets.type === 'choice' && lineIdx === 0);
     restartBtn.title = i18n.t('restart');
   }
@@ -94,6 +157,14 @@ async function boot() {
     state = reduce(state, { type: 'RESTART' });
     saveProgress(state);
     paint();
+  });
+
+  exitBtn.addEventListener('click', () => {
+    if (confirm(i18n.t('exit_to_menu') + '?')) {
+      state = reduce(state, { type: 'EXIT_TO_MENU' });
+      saveProgress(state);
+      paint();
+    }
   });
 
   paint();

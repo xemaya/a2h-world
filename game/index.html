@@ -11,12 +11,13 @@
     <header class="hud">
       <span class="hud-ep" data-slot="ep-label">EP.01</span>
       <div class="hud-progress">
-        <span data-slot="progress-label">学习进度</span>
+        <span data-slot="progress-label">进化进度</span>
         <div class="progress-track"><div class="progress-fill" data-slot="progress-fill"></div></div>
         <span data-slot="progress-value">0/100</span>
       </div>
       <div class="hud-actions">
-        <button class="hud-restart" data-slot="restart" title="重开 ↻">↻</button>
+        <button class="hud-exit" data-slot="exit" title="退出">✕</button>
+        <button class="hud-restart" data-slot="restart" title="重开">↻</button>
         <button class="hud-lang" data-slot="lang-toggle">EN</button>
       </div>
     </header>
@@ -29,6 +30,11 @@
         <button class="next-btn" data-slot="next">继续 ▸</button>
       </div>
     </footer>
+
+    <!-- Menu overlay (hidden by default) -->
+    <div id="menu-overlay" style="display: none;">
+      <div class="menu-content"></div>
+    </div>
   </div>
 
   <script type="module" src="./src/main.js"></script>

@@ -2,13 +2,15 @@
 
 export function initialState(scriptFile, startEpisodeId = 'EP01') {
   return {
+    gameMode: 'menu', // 'menu' | 'chapter-select' | 'playing'
     script: scriptFile,
     episodeId: startEpisodeId,
     screenIdx: 0,
     lineIdx: 0,
     learningScore: 0,
     choices: {},
-    lang: 'zh'
+    lang: 'zh',
+    completedEpisodes: []
   };
 }
 
@@ -17,6 +19,33 @@ function currentScreen(s) { return currentEpisode(s).screens[s.screenIdx]; }
 
 export function reduce(s, action) {
   switch (action.type) {
+    case 'START_NEW_GAME':
+      return {
+        ...initialState(s.script, 'EP01'),
+        lang: s.lang,
+        gameMode: 'playing'
+      };
+
+    case 'CONTINUE_GAME':
+      return { ...s, gameMode: 'playing' };
+
+    case 'SHOW_CHAPTER_SELECT':
+      return { ...s, gameMode: 'chapter-select' };
+
+    case 'EXIT_TO_MENU':
+      return { ...s, gameMode: 'menu' };
+
+    case 'SELECT_EPISODE':
+      return {
+        ...s,
+        episodeId: action.episodeId,
+        screenIdx: 0,
+        lineIdx: 0,
+        learningScore: 0,
+        choices: {},
+        gameMode: 'playing'
+      };
+
     case 'SET_LANG':
       return { ...s, lang: action.lang };
 
