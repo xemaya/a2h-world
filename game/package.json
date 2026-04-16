@@ -10,7 +10,9 @@
     "test:watch": "vitest",
     "verify:models": "node build/verify-models.mjs",
     "review:script": "node build/review-script.mjs",
-    "gen:assets": "node build/generate-assets.mjs"
+    "gen:assets": "node build/generate-assets.mjs",
+    "build:episode": "node build/build-episode.mjs",
+    "validate": "node build/steps/validate.mjs"
   },
   "devDependencies": {
     "canvas": "^3.2.3",
