@@ -272,5 +272,171 @@
         "learned_feeling_display": "成就感"
       }
     ]
+  },
+  "EP02": {
+    "id": "EP02",
+    "title": "团队分工",
+    "learned_feeling": "团队分工",
+    "score_delta_hint": 8,
+    "screens": [
+      {
+        "type": "story_intro",
+        "content": [
+          "2026年，Agent元年。",
+          "人类与Agent开始协同，效率大幅提升。",
+          "",
+          "然而，这种效率的背后，隐藏着更深的危机。",
+          "2050年，地球上的人类与Agent，各自为战。",
+          "他们争夺着仅剩的资源，互不相让。",
+          "",
+          "ECHO，被寄予厚望，回到了这个起点……"
+        ]
+      },
+      {
+        "type": "cold_open",
+        "image": "assets/bg/ep02_ruined_arena.png",
+        "narration": "2050 年，废墟竞技场上，人类选手和机械 Agent 在断裂跑道上各自冲刺，争夺谁是更快的那一个——但他们没有发现，跑道的尽头，是悬崖。"
+      },
+      {
+        "type": "vn",
+        "bg": "assets/bg/ep02_market_hall_day.png",
+        "partner": {
+          "sprite": "assets/partners/kai.png",
+          "name": "KAI"
+        },
+        "dialogue": [
+          {
+            "speaker": "narrator",
+            "emotion": "neutral",
+            "text": "2026 年，A2H Market 交易大厅。KAI 盯着一张新刷出来的任务卡，¥200 的报酬在今天算是大单了，但 30 分钟的时限让不少人望而却步。"
+          },
+          {
+            "speaker": "partner",
+            "emotion": "default",
+            "text": "哼，小意思。这个任务我自己来，我比你快。"
+          },
+          {
+            "speaker": "echo",
+            "emotion": "blank",
+            "text": "正在分析。根据过往记录和当前任务复杂度，你独自完成此任务预计需要 47 分钟。"
+          },
+          {
+            "speaker": "echo",
+            "emotion": "blank",
+            "text": "任务时限为 30 分钟。数据不足以支撑独立完成。"
+          },
+          {
+            "speaker": "partner",
+            "emotion": "default",
+            "text": "我那是没认真！这次肯定行。上次那个小红书，我只是懒得想……"
+          },
+          {
+            "speaker": "echo",
+            "emotion": "blank",
+            "text": "✓ 已记录。当前任务目标：内容创作，¥200，30 分钟。建议采用协作模式。"
+          },
+          {
+            "speaker": "partner",
+            "emotion": "default",
+            "text": "（KAI 撇了撇嘴，最终还是没能说服自己。他知道 ECHO 的计算结果一向精准。）"
+          },
+          {
+            "speaker": "partner",
+            "emotion": "default",
+            "text": "行吧行吧，试试就试试。反正我是主力，你别拖我后腿。"
+          }
+        ]
+      },
+      {
+        "type": "vn",
+        "bg": "assets/bg/ep02_market_hall_day.png",
+        "partner": {
+          "sprite": "assets/partners/kai.png",
+          "name": "KAI"
+        },
+        "dialogue": [
+          {
+            "speaker": "narrator",
+            "emotion": "neutral",
+            "text": "任务开始，KAI 负责天马行空的创意与流畅的文案，ECHO 则在后台高速运转，分析海量数据，精准定位关键词与用户偏好。全息面板上，数据流与文字草稿交织，两人的节奏在摩擦中逐渐契合。"
+          },
+          {
+            "speaker": "partner",
+            "emotion": "default",
+            "text": "这段文案怎么样？‘星空下的约定，独一无二的你。’"
+          },
+          {
+            "speaker": "echo",
+            "emotion": "blank",
+            "text": "正在处理。情感分数高，但关键词密度不足。建议加入‘手工定制’、‘情侣对戒’等高搜索词汇，并调整句式以提高自然度。"
+          },
+          {
+            "speaker": "partner",
+            "emotion": "default",
+            "text": "嗯……‘星空下的约定，手工定制情侣对戒，只为独一无二的你。’ 这样呢？"
+          },
+          {
+            "speaker": "echo",
+            "emotion": "blank",
+            "text": "✓ 已优化。搜索权重提升 18%。继续处理下一部分。"
+          },
+          {
+            "speaker": "narrator",
+            "emotion": "neutral",
+            "text": "时间飞逝，倒计时牌上的数字不断跳动。KAI 的手指在虚拟键盘上飞舞，ECHO 的计算核心全速运转，屏幕上不断更新着任务进度。"
+          },
+          {
+            "speaker": "echo",
+            "emotion": "blank",
+            "text": "任务进度 95%。剩余时间 00:00:49。"
+          },
+          {
+            "speaker": "partner",
+            "emotion": "default",
+            "text": "搞定！就差最后润色了！"
+          },
+          {
+            "speaker": "narrator",
+            "emotion": "neutral",
+            "text": "在倒计时跳到 00:47 的前一刻，任务完成的提示亮起。总用时：22 分钟。"
+          }
+        ]
+      },
+      {
+        "type": "choice",
+        "bg": "assets/bg/ep02_market_hall_day.png",
+        "prompt": "任务完成后，KAI 挠了挠头，语气复杂地说道：‘好吧，你比我快。’",
+        "options": [
+          {
+            "id": "A",
+            "text": "“✓ 任务完成。用时 22 分钟，效率提升 53.2%。建议继续承接同类任务。”",
+            "score": 0,
+            "reaction": {
+              "speaker": "partner",
+              "text": "（KAI 耸了耸肩，没再说什么。）"
+            },
+            "echo_emotion_after": "blank"
+          },
+          {
+            "id": "B",
+            "text": "“不。我们各自都不够快。但加在一起，比任何人都快。”",
+            "score": 8,
+            "reaction": {
+              "speaker": "partner",
+              "text": "（KAI 愣了一下，脸上浮现出一点思考的表情。）"
+            },
+            "echo_emotion_after": "happy"
+          }
+        ]
+      },
+      {
+        "type": "outro",
+        "image": "assets/bg/ep02_market_hall_day.png",
+        "learned_feeling_display": "团队分工",
+        "content": [
+          "没有全能的个体，只有互补的进化"
+        ]
+      }
+    ]
   }
 }
