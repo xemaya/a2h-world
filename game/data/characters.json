@@ -1,0 +1,19 @@
+{
+  "echo": {
+    "name": "ECHO",
+    "speaker_id": "echo",
+    "sprite_dir": "assets/echo",
+    "sprite_pattern": "echo_{emotion}.png",
+    "emotions": ["blank", "concern", "happy"],
+    "character_lock": "ECHO character — follow EXACTLY: flat trapezoid body wide-at-top narrow-at-bottom, NO neck, head merged with body, THREE short thick antennae sticking upward from top of head, TWO white oval eyes with NO pupils, stubby arms, solid #895AFF purple body with halftone texture, circular cyan (#00ffcc) A2H badge on chest, NO nose, NO ears, NO pupils, comic book style with thick black 3-4px outlines",
+    "style": "flat 2D comic illustration, NOT 3D, NOT rounded cartoon, cyberpunk aesthetic, halftone dot texture overlay, thick black outlines, flat cel shading"
+  },
+  "kai": {
+    "name": "KAI",
+    "speaker_id": "partner",
+    "sprite_dir": "assets/partners",
+    "sprite_pattern": "kai.png",
+    "emotions": ["default"],
+    "character_lock": "KAI character: young Asian male freelancer age 25, short dark hair with purple highlights, sharp confident facial features, wearing black oversized hoodie with cyan neon edge lighting, small 'a2hmarket.ai' text logo on chest in cyan glow, hands in pockets or one hand visible, half-body portrait from waist up, cyberpunk comic style with thick black outlines, flat cel shading, semi-realistic anime influenced"
+  }
+}
