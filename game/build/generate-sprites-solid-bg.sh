@@ -3,7 +3,7 @@
 
 set -e
 
-KEY="REDACTED_GOOGLE_API_KEY"
+KEY="${GEMINI_API_KEY:?ERROR: GEMINI_API_KEY not set. Add it to game/.env or export it.}"
 MODEL="gemini-3.1-flash-image-preview"
 API_URL="https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${KEY}"
 
