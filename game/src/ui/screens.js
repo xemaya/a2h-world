@@ -135,15 +135,21 @@ function renderChoiceOptions(panel, options, onChoose) {
 
 export function renderScreen(refs, screen, lineIdx, state, i18n, onChoose) {
   const { stage, dialoguePanel, dialogueContent, choiceOptions } = refs;
+  const footer = dialoguePanel.closest('.dialogue-footer');
 
   // Reset panel mode classes
   dialoguePanel.classList.remove('choice-mode');
   dialogueContent.classList.remove('choice-mode');
   choiceOptions.replaceChildren(); // clear choice area
+  footer.classList.remove('hidden');
 
   if (screen.type === 'story_intro') {
     paintStageStoryIntro(stage, screen);
     renderDialogueLine(dialogueContent, 'narrator', i18n.t('cold_open_hint'), '——');
+    // Hide footer during text animation, reveal after last line finishes
+    footer.classList.add('hidden');
+    clearTimeout(renderScreen._introTimer);
+    renderScreen._introTimer = setTimeout(() => footer.classList.remove('hidden'), 4600);
     return;
   }
 

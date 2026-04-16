@@ -186,6 +186,10 @@ body {
   padding: 14px 20px 18px;
   z-index: 20;
   background: linear-gradient(180deg, transparent, rgba(5,5,15,0.7) 30%);
+  transition: opacity 600ms ease, transform 400ms ease;
+}
+.dialogue-footer.hidden {
+  opacity: 0; pointer-events: none; transform: translateY(20px);
 }
 .dialogue-panel {
   background: var(--dialogue-bg);
@@ -195,12 +199,13 @@ body {
   display: flex; align-items: stretch; gap: 14px;
   box-shadow: 0 0 30px rgba(0,255,204,0.08), 0 4px 20px rgba(0,0,0,0.5);
   backdrop-filter: blur(12px);
-  min-height: 120px;
-  height: 120px;
+  min-height: 100px;
+  max-height: 180px;
+  overflow: hidden;
   transition: border-color 220ms;
 }
 .dialogue-panel:focus-within { border-color: var(--cyan); }
-.dialogue-content { flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: flex-start; }
+.dialogue-content { flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: flex-start; overflow: hidden; }
 
 /* speaker row — like input label */
 .dialogue-content .speaker-row {
@@ -222,8 +227,10 @@ body {
 .dialogue-content .text {
   font-size: 16px; line-height: 1.7; color: var(--ink);
   word-break: break-word;
+  flex: 1; overflow-y: auto; min-height: 0;
+  scrollbar-width: thin; scrollbar-color: var(--panel-border) transparent;
 }
-.dialogue-content .text.narrator-italic { color: #c0c0d8; font-style: italic; font-size: 14.5px; }
+.dialogue-content .text.narrator-italic { color: #c0c0d8; font-style: italic; font-size: 13.5px; line-height: 1.6; }
 
 /* choice options area — above dialogue panel */
 .choice-options-area {
